@@ -1,17 +1,36 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import TableLayout from "../../components/admin/TableLayout";
 import DocPassTable from "../../components/admin/DocPassTable";
-import DocPassEmailData from "../../data/admin/DocPassEmailData";
 import styled from "styled-components";
+import axios from "axios";
 
 const DocPassEmailPage = () => {
   const [activePage, setActivePage] = useState(1);
-  const emails = DocPassEmailData;
+  const [applicants, setApplicants] = useState([]); // 받아올 서류 합격자 데이터
+  const [totalItemsCount, setTotalItemsCount] = useState(0); // 전체 데이터 개수
 
-  const totalItemsCount = emails.length;
   const indexOfLastPost = activePage * 7;
   const indexOfFirstPost = indexOfLastPost - 7;
-  const currentEmails = emails.slice(indexOfFirstPost, indexOfLastPost);
+  const currentApplicants = applicants.slice(indexOfFirstPost, indexOfLastPost);
+
+  const apiUrl = process.env.REACT_APP_API_URL;
+
+  // 합격자 조회 api 호출
+  useEffect(() => {
+    const fetchApplicants = async () => {
+      try {
+        const response = await axios.get(`${apiUrl}/docPassResult`);
+        if (response.data.isSuccess) {
+          setApplicants(response.data.result.resultApplicants);
+          setTotalItemsCount(response.data.result.resultApplicants.length); // 받아온 전체 데이터 개수
+        }
+      } catch (error) {
+        console.error("지원자 조회 에러", error);
+      }
+    };
+
+    fetchApplicants();
+  }, []);
 
   const handlePageChange = (pageNumber) => {
     // 페이지 변경
@@ -24,7 +43,17 @@ const DocPassEmailPage = () => {
     actionButton: <SendButton>서류 합격 메일 보내기</SendButton>,
     headers: ["이름", "이메일", "전화번호", "파트", "서류합/불", "상태"],
     renderRow: (item) => <DocPassTable items={[item]} />, // 개별 아이템 단위로 렌더링
-    currentItems: currentEmails,
+
+    currentItems: currentApplicants.map((applicant) => ({
+      name: applicant.name,
+      email: applicant.email,
+      phone: applicant.phone,
+      part: applicant.phone,
+      part: applicant.part,
+      docPassStatus: applicant.docPassStatus,
+      finalPassStatus: applicant.finalPassStatus,
+    })),
+
     paginationProps: {
       activePage,
       totalItemsCount,
@@ -44,7 +73,7 @@ const SendButton = styled.button`
   width: 10.938rem;
   height: 2.813rem;
   padding: 0.063rem 1.375rem;
-  background: #60C1C3;
+  background: #60c1c3;
   border-radius: 0.313rem;
   border: none;
   cursor: pointer;

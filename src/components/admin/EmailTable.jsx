@@ -3,10 +3,12 @@ import styled from "styled-components";
 const EmailTable = ({ items }) => {
   return (
     <>
-      {items.map((item) => (
-        <TableRow key={item.id}>
-          <TableCell>{item.id}</TableCell> {/* 번호 (1번 헤더 아래) */}
-          <TableCell>{item.email}</TableCell> {/* 이메일 (2번 헤더 아래) */}
+      {items.map((item, index) => (
+        <TableRow key={item.id || index}>
+          <TableCell>{index + 1}</TableCell>{" "}
+          {/* 번호 (1번 헤더 아래), 자동 증가 */}
+          <TableCell>{item.emailAddress?.replace(/['"]/g, "")}</TableCell>{" "}
+          {/* 이메일 (2번 헤더 아래), 따옴표 제거 */}
           <TableCell /> {/* 3번 빈 칸 */}
           <TableCell /> {/* 4번 빈 칸 */}
           <TableCell /> {/* 5번 빈 칸 */}
