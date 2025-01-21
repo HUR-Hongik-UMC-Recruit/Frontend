@@ -43,7 +43,7 @@ function Routing() {
         />
         <Route path="/join" element={<AdminJoinPage />} />
         <Route path="/login" element={<AdminLoginPage />} />
-        {/* <Route path="/admin" element={<AdminRoute element={<AdminPage />} />} /> */}
+        {/* <Route path="/admin" element={<AdminRoute children={<AdminPage />} />} /> */}
       </Routes>
       {showPages && <Footer />}
     </>
