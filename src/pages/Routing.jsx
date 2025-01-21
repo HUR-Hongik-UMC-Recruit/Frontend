@@ -12,17 +12,18 @@ import AdminLoginPage from "./admin/AdminLoginPage";
 function Routing() {
   // Header와 Footer 표시할 페이지
   const { pathname } = useLocation();
-  const notHidePages = [
+  const showPages = [
     "/",
     "/home",
     "/main",
     "/recruitment",
     "/apply",
+    "/leader",
   ].includes(pathname);
 
   return (
     <>
-      {notHidePages && <Header />}
+      {showPages && <Header />}
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/home" element={<HomePage />} />
@@ -38,12 +39,11 @@ function Routing() {
             </EmailProvider>
           }
         />
-        <Route path="/recruitment" element={<RecruitmentPage />} />
         <Route path="/join" element={<AdminJoinPage />} />
         <Route path="/login" element={<AdminLoginPage />} />
-        {/* <Route path="/admin" element={} /> */}
+        {/* <Route path="/admin" element={<AdminPage />} /> */}
       </Routes>
-      {notHidePages && <Footer />}
+      {showPages && <Footer />}
     </>
   );
 }
