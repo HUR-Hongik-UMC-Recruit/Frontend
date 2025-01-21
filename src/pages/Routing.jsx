@@ -8,6 +8,8 @@ import { EmailProvider } from "../contexts/EmailContext";
 import ApplicationPage from "./application/ApplicationPage";
 import AdminJoinPage from "./admin/AdminJoinPage";
 import AdminLoginPage from "./admin/AdminLoginPage";
+import AdminRoute from "../contexts/AdminRoute";
+import AdminPage from "./admin/AdminPage";
 
 function Routing() {
   // Header와 Footer 표시할 페이지
@@ -41,7 +43,7 @@ function Routing() {
         />
         <Route path="/join" element={<AdminJoinPage />} />
         <Route path="/login" element={<AdminLoginPage />} />
-        {/* <Route path="/admin" element={<AdminPage />} /> */}
+        {/* <Route path="/admin" element={<AdminRoute element={<AdminPage />} />} /> */}
       </Routes>
       {showPages && <Footer />}
     </>

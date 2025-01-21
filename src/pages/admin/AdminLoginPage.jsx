@@ -1,10 +1,15 @@
 import axios from "axios";
 import React, { useState } from "react";
 import styled from "styled-components";
+import { useAuth } from "../../contexts/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 const AdminLoginPage = () => {
   const [id, setId] = useState("");
   const [password, setPassword] = useState("");
+
+  const { login } = useAuth();
+  const navigate = useNavigate();
 
   const apiUrl = process.env.REACT_APP_API_URL;
 
@@ -20,7 +25,8 @@ const AdminLoginPage = () => {
       alert("로그인 성공!");
 
       // 성공시 어드민 페이지로 이동
-      window.location.href = "/admin";
+      login();
+      navigate("/admin");
     } catch (e) {
       console.log("로그인 실패:", e);
       alert("로그인에 실패했습니다.");
