@@ -9,7 +9,6 @@ import ApplicationPage from "./application/ApplicationPage";
 import AdminJoinPage from "./admin/AdminJoinPage";
 import AdminLoginPage from "./admin/AdminLoginPage";
 import AdminRoute from "../contexts/AdminRoute";
-import AdminPage from "./admin/AdminPage";
 
 function Routing() {
   // Header와 Footer 표시할 페이지
