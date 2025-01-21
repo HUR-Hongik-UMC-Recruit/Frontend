@@ -1,11 +1,14 @@
 import styled from "styled-components";
 import defaultImg from "../../assets/icons/LeaderWOW.svg";
 import LeaderCard from "../../components/leader/LeaderCard";
+import leaders from "../../data/leader/LeaderData";
+import LeaderToggle from "../../components/leader/LeaderToggle";
 
 const LeaderContainer = styled.div`
   background: black;
   padding: 5rem 12.5rem 10rem 12.5rem;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 1.5rem;
@@ -43,20 +46,15 @@ const SectionDetail = styled.div`
 `;
 
 const LeaderPage = () => {
-  <LeaderCard
-    img={defaultImg}
-    role="회장"
-    name="이름"
-    nickname="별명"
-    major="컴퓨터공학과"
-  />;
-
   return (
     <LeaderContainer>
       <Section>
         <SectionTitle>운영진</SectionTitle>
         <SectionDetail>UMC를 이끌어갈 운영진을 소개합니다</SectionDetail>
       </Section>
+      {leaders.map((leader, index) => (
+        <LeaderToggle key={index} leaders={leader} />
+      ))}
     </LeaderContainer>
   );
 };
