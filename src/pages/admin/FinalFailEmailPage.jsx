@@ -79,7 +79,7 @@ const FinalFailEmailPage = () => {
     renderRow: (item) => <FinalFailTable items={[item]} />, // 개별 아이템 단위로 렌더링
 
     currentItems: currentApplicants.map((applicant) => ({
-      id: applicant.applicantId,
+      applicantId: applicant.applicantId,
       name: applicant.name,
       email: applicant.email,
       phone: applicant.phone,

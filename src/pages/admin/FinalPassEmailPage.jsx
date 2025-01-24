@@ -79,13 +79,13 @@ const FinalPassEmailPage = () => {
     renderRow: (item) => <FinalPassTable items={[item]} />, // 개별 아이템 단위로 렌더링
 
     currentItems: currentApplicants.map((applicant) => ({
-      id: applicant.applicantId,
+      applicantId: applicant.applicantId,
       name: applicant.name,
       email: applicant.email,
       phone: applicant.phone,
       part: applicant.part,
       finalPassStatus: applicant.finalPassStatus,
-      finalEmailSent: applicant.finalEmailSent
+      finalEmailSent: applicant.finalEmailSent,
     })),
 
     paginationProps: {

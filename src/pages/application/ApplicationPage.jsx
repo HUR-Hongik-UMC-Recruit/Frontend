@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import axios from "axios";
 import Title from "../../components/apply/intro/Title";
 import Verification from "../apply/intro/Verification";
@@ -208,7 +208,7 @@ const ApplicationPage = () => {
   const [applicantDTO, setApplicantDTO] = useState({
     name: "",
     nickName: "",
-    email: authenticatedEmail,
+    //email: authenticatedEmail,
     phone: "",
     gender: "",
     birth: "",
@@ -224,6 +224,16 @@ const ApplicationPage = () => {
     part: "",
     answers: [],
   });
+
+  useEffect(() => {
+    if (authenticatedEmail) {
+      setApplicantDTO((prev) => ({
+        ...prev,
+        email: authenticatedEmail,
+      }));
+    }
+  }, [authenticatedEmail]);
+
   const [fileDTO, setFileDTO] = useState(null);
 
   // PersonalInfo에서 사용할 함수(applicantDTO)
@@ -424,8 +434,10 @@ const ApplicationPage = () => {
       console.log("지원서 제출 서버 응답: ", response.data);
       setOpen(false);
       setSuccessOpen(true);
+      alert("지원서 제출 성공")
     } catch (e) {
       console.log("지원서 제출 에러 발생: ", e);
+      alert("지원서 제출 실패")
       setOpen(false);
     }
   };
