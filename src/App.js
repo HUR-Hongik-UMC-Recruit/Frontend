@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
 import HomePage from "./pages/home/HomePage";
+import LeaderPage from "./pages/leader/LeaderPage";
 import RecruitmentPage from "./pages/recruitment/RecruitmentPage";
 import ApplicationPage from "./pages/application/ApplicationPage";
 import NotFoundPage from "./pages/NotFoundPage";
@@ -28,6 +29,7 @@ function App() {
         <Route path="/home" element={<HomePage />} />
         <Route path="*" element={<NotFoundPage />} />
         <Route path="/recruitment" element={<RecruitmentPage />} />
+        <Route path="/leader" element={<LeaderPage />} />
         <Route
           path="/apply"
           element={

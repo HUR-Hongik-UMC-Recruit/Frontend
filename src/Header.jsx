@@ -138,7 +138,7 @@ const Header = () => {
             <MenuList href="" $isApplyPage={isApplyPage}>
               프로젝트
             </MenuList>
-            <MenuList href="" $isApplyPage={isApplyPage}>
+            <MenuList href="/leader" $isApplyPage={isApplyPage}>
               운영진
             </MenuList>
           </MenuListWrapper>
