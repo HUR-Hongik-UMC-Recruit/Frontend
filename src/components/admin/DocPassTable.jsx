@@ -1,29 +1,30 @@
+import React from "react";
 import styled from "styled-components";
 
-const DocPassTable = ({ items }) => {
+const DocPassTable = React.memo(({ items }) => {
   console.log("items에 뭐가 담겼냐", items);
 
   return (
     <>
       {items.map((item) => (
-        <TableRow key={item.id}>
+        <TableRow key={item.applicantId}>
           <TableCell>{item.name}</TableCell> {/* 이름름 (1번 헤더 아래) */}
           <TableCell>{item.email?.replace(/['"]/g, "")}</TableCell>{" "}
           {/* 이메일 (2번 헤더 아래) */}
           <TableCell>{item.phone}</TableCell>
           <TableCell>{item.part}</TableCell>
           <TableCell $isPassed={item.docPassStatus}>
-            {item.docPassStatus ? "합격" : ""}
+            합격
           </TableCell>
-          <TableCell $completed={item.completed}>
-            {item.$completed ? "전송 완료" : "전송 대기"}
+          <TableCell $docEmailSent={item.docEmailSent}>
+            {item.docEmailSent ? "전송 완료" : "전송 대기"}
           </TableCell>{" "}
           {/* 상태 (6번 헤더 아래) */}
         </TableRow>
       ))}
     </>
   );
-};
+});
 
 export default DocPassTable;
 
@@ -46,7 +47,7 @@ const TableCell = styled.div`
   color: ${(props) =>
     props.$isPassed
       ? "#60C1C3"
-      : props.$completed
+      : props.$docEmailSent
       ? "#2B9176"
       : "#5C6161"}; /* docPassStatus가 true일 경우 #60C1C3 (합격) */
   padding: 0.313rem;

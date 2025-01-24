@@ -1,22 +1,18 @@
 import styled from "styled-components";
 
 const FinalFailTable = ({ items }) => {
-  console.log("items에 뭐가 담겼냐", items);
-
   return (
     <>
       {items.map((item) => (
-        <TableRow key={item.id}>
+        <TableRow key={item.applicantId}>
           <TableCell>{item.name}</TableCell> {/* 이름 (1번 헤더 아래) */}
           <TableCell>{item.email?.replace(/['"]/g, "")}</TableCell>{" "}
           {/* 이메일 (2번 헤더 아래) */}
           <TableCell>{item.phone}</TableCell>
           <TableCell>{item.part}</TableCell>
-          <TableCell $isPassed={item.finalPassStatus}>
-            {item.finalPassStatus === false ? "불합격" : ""}
-          </TableCell>
-          <TableCell $completed={item.completed}>
-            {item.completed ? "전송 완료" : "전송 대기"}
+          <TableCell $isPassed={item.finalPassStatus}>불합격</TableCell>
+          <TableCell $finalEmailSent={item.finalEmailSent}>
+            {item.finalEmailSent ? "전송 완료" : "전송 대기"}
           </TableCell>{" "}
           {/* 상태 (6번 헤더 아래) */}
         </TableRow>
@@ -45,7 +41,7 @@ const TableCell = styled.div`
   color: ${(props) =>
     props.$isPassed === false
       ? "#FF948A"
-      : props.$completed
+      : props.$finalEmailSent
       ? "#2B9176"
       : "#5C6161"};
   padding: 0.313rem;
