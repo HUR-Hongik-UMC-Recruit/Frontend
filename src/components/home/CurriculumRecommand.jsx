@@ -34,7 +34,7 @@ const RecommandText = styled(motion.div)`
   justify-content: center;
   align-items: center;
   padding: 0 3rem;
-  border-right: ${(props) => (props.isLast ? "none" : "1px solid #5C6161")};
+  border-right: ${(props) => (props.isLast ? "none" : "0.063rem solid #5C6161")};
 
   color: #a2abab;
   font-family: "Pretendard Variable";
