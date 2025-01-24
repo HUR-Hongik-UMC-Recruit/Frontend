@@ -13,7 +13,7 @@ const DocPassEmailPage = () => {
 
   const indexOfLastPost = activePage * 7;
   const indexOfFirstPost = indexOfLastPost - 7;
-  
+
   const currentApplicants = applicants.slice(indexOfFirstPost, indexOfLastPost);
 
   const apiUrl = process.env.REACT_APP_API_URL;
@@ -25,7 +25,7 @@ const DocPassEmailPage = () => {
       if (response.data.isSuccess) {
         setApplicants(response.data.result.resultApplicants); // 서류 합격자 데이터
         setTotalItemsCount(response.data.result.resultApplicants.length);
-        
+
         // 전체 지원자의 이메일 전송 여부가 true인지 확인
         const allEmailSent = response.data.result.resultApplicants.every(
           (applicant) => applicant.docEmailSent
@@ -57,10 +57,10 @@ const DocPassEmailPage = () => {
       if (response.data.isSuccess) {
         alert("메일이 성공적으로 전송되었습니다.");
         setIsSent(true);
-       // setApplicants(
+        // setApplicants(
         //  applicants.map((applicant) => ({ ...applicant, docEmailSent: true }))
-       // );
-       fetchApplicants(); // 업데이트된 전송 완료 상태 가져오기
+        // );
+        fetchApplicants(); // 업데이트된 전송 완료 상태 가져오기
       }
     } catch (error) {
       console.error("메일 전송 에러", error);
@@ -86,7 +86,7 @@ const DocPassEmailPage = () => {
       phone: applicant.phone,
       part: applicant.part,
       docPassStatus: applicant.docPassStatus,
-      docEmailSent: applicant.docEmailSent
+      docEmailSent: applicant.docEmailSent,
     })),
 
     paginationProps: {
@@ -119,7 +119,7 @@ const SendButton = styled.button`
   font-family: "Pretendard Variable";
   font-size: 0.938rem;
   font-style: normal;
-  font-weight: 600;
+  font-weight: 599;
   line-height: 145%;
   letter-spacing: 0.009rem;
 `;

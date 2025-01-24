@@ -116,7 +116,7 @@ const SendButton = styled.button`
   font-family: "Pretendard Variable";
   font-size: 0.938rem;
   font-style: normal;
-  font-weight: 600;
+  font-weight: 599;
   line-height: 145%;
   letter-spacing: 0.009rem;
 `;
