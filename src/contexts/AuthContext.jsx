@@ -1,15 +1,22 @@
+import React, { createContext, useContext, useState, useEffect } from "react";
+
+const AuthContext = createContext();
+
 // 로그인하지 않은 사용자가 /admin에 접속하는 것 막기 위함
-
-import React, { createContext, useState, useContext } from "react";
-
-// 인증 상태를 위한 Context 생성
-const AuthContext = createContext(null);
-
 export const AuthProvider = ({ children }) => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(() => {
+    return localStorage.getItem("isAuthenticated") === "true";
+  });
 
-  const login = () => setIsAuthenticated(true); // 로그인 함수
-  const logout = () => setIsAuthenticated(false); // 로그아웃 함수
+  const login = () => {
+    setIsAuthenticated(true);
+    localStorage.setItem("isAuthenticated", "true");
+  };
+
+  const logout = () => {
+    setIsAuthenticated(false);
+    localStorage.setItem("isAuthenticated", "false");
+  };
 
   return (
     <AuthContext.Provider value={{ isAuthenticated, login, logout }}>
