@@ -16,7 +16,7 @@ import DocFailEmailPage from "../pages/admin/DocFailEmailPage";
 import FinalPassEmailPage from "../pages/admin/FinalPassEmailPage";
 import FinalFailEmailPage from "../pages/admin/FinalFailEmailPage";
 import AllApplicantsPage from "../pages/admin/AllApplicantsPage";
-import AdminHeader from "../components/admin/AdminHeader";
+import { AuthProvider } from "../contexts/AuthContext";
 
 function Routing() {
   // Header와 Footer 표시할 페이지
@@ -31,7 +31,7 @@ function Routing() {
   ].includes(pathname);
 
   return (
-    <>
+    <AuthProvider>
       {showPages && <Header />}
       <Routes>
         <Route path="/" element={<HomePage />} />
@@ -55,31 +55,36 @@ function Routing() {
         <Route
           path="/admin/*"
           element={
-            <AdminLayout>
-              <Routes>
-                <Route path="" element={<AllApplicantsPage />} />
-                <Route
-                  path="recruit-email"
-                  element={<RecruitAlertEmailPage />}
-                />
-                <Route path="docpass-email" element={<DocPassEmailPage />} />
-                <Route path="docfail-email" element={<DocFailEmailPage />} />
-                <Route
-                  path="finalpass-email"
-                  element={<FinalPassEmailPage />}
-                />
-                <Route
-                  path="finalfail-email"
-                  element={<FinalFailEmailPage />}
-                />
-                <Route path="all-applicants" element={<AllApplicantsPage />} />
-              </Routes>
-            </AdminLayout>
+            <AdminRoute>
+              <AdminLayout>
+                <Routes>
+                  <Route path="" element={<AllApplicantsPage />} />
+                  <Route
+                    path="recruit-email"
+                    element={<RecruitAlertEmailPage />}
+                  />
+                  <Route path="docpass-email" element={<DocPassEmailPage />} />
+                  <Route path="docfail-email" element={<DocFailEmailPage />} />
+                  <Route
+                    path="finalpass-email"
+                    element={<FinalPassEmailPage />}
+                  />
+                  <Route
+                    path="finalfail-email"
+                    element={<FinalFailEmailPage />}
+                  />
+                  <Route
+                    path="all-applicants"
+                    element={<AllApplicantsPage />}
+                  />
+                </Routes>
+              </AdminLayout>
+            </AdminRoute>
           }
         />
       </Routes>
       {showPages && <Footer />}
-    </>
+    </AuthProvider>
   );
 }
 
