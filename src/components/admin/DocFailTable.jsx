@@ -12,9 +12,7 @@ const DocFailTable = ({ items }) => {
           {/* 이메일 (2번 헤더 아래) */}
           <TableCell>{item.phone}</TableCell>
           <TableCell>{item.part}</TableCell>
-          <TableCell $isPassed={item.docPassStatus}>
-            불합격
-          </TableCell>
+          <TableCell $isPassed={item.docPassStatus}>불합격</TableCell>
           <TableCell $docEmailSent={item.docEmailSent}>
             {item.docEmailSent ? "전송 완료" : "전송 대기"}
           </TableCell>{" "}
@@ -42,7 +40,7 @@ const TableCell = styled.div`
   font-style: normal;
   font-weight: ${(props) =>
     props.$isPassed === false
-      ? 600
+      ? 599
       : 400}; /* docPassStatus가 fail일 경우 600 */
   line-height: 1.5rem;
   color: ${(props) =>
@@ -57,5 +55,4 @@ const TableCell = styled.div`
     // 마지막 요소만 중앙 정렬
     justify-self: center;
   }
-
 `;

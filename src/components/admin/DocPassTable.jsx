@@ -13,9 +13,7 @@ const DocPassTable = React.memo(({ items }) => {
           {/* 이메일 (2번 헤더 아래) */}
           <TableCell>{item.phone}</TableCell>
           <TableCell>{item.part}</TableCell>
-          <TableCell $isPassed={item.docPassStatus}>
-            합격
-          </TableCell>
+          <TableCell $isPassed={item.docPassStatus}>합격</TableCell>
           <TableCell $docEmailSent={item.docEmailSent}>
             {item.docEmailSent ? "전송 완료" : "전송 대기"}
           </TableCell>{" "}
@@ -42,7 +40,7 @@ const TableCell = styled.div`
   font-size: 1rem;
   font-style: normal;
   font-weight: ${(props) =>
-    props.$isPassed ? 600 : 400}; /* docPassStatus가 true일 경우 600 */
+    props.$isPassed ? 599 : 400}; /* docPassStatus가 true일 경우 600 */
   line-height: 1.5rem;
   color: ${(props) =>
     props.$isPassed
