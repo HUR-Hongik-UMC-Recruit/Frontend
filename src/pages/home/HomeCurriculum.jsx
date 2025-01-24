@@ -46,12 +46,12 @@ const PartButton = styled.div`
   cursor: pointer;
 
   &.active {
-    border-bottom: 1px solid #fcffff;
+    border-bottom: 0.063rem solid #fcffff;
     color: #fcffff;
   }
 
   color: ${(props) => (props.isSelect ? " #fcffff" : "#5c6161")};
-  border-bottom: ${(props) => (props.isSelect ? "1px solid #fcffff" : "none")};
+  border-bottom: ${(props) => (props.isSelect ? "0.063rem solid #fcffff" : "none")};
 `;
 
 const CurriculumWrapper = styled.div`
