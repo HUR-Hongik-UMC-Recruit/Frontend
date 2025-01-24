@@ -6,7 +6,7 @@ import LeaderToggle from "../../components/leader/LeaderToggle";
 
 const LeaderContainer = styled.div`
   background: black;
-  padding: 5rem 12.5rem 10rem 12.5rem;
+  padding: 5rem 8rem 10rem 8rem;
   display: flex;
   flex-direction: column;
   justify-content: center;

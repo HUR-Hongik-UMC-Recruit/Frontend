@@ -41,14 +41,15 @@ const ToggleIcon = styled.div`
 const LeaderListContainer = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 7rem;
+  gap: 7.5rem;
 
-  margin: 3rem 0rem 13rem 0rem;
+  margin: 3rem 0rem 8rem 0rem;
 `;
 
 const LeaderListWrapper = styled.div`
-  // display: flex;
-  // justify-content: space-between;
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
 `;
 
 const LedaerTitle = styled.div`
@@ -65,19 +66,10 @@ const LeaderList = styled.div`
   display: flex;
   justify-content: flex-end;
   gap: 1rem;
-  margin-bottom: 3rem;
 `;
 
 const LeaderToggle = ({ leaders }) => {
   const [isOpen, setIsOpen] = useState(false);
-
-  //   <LeaderCard
-  //     img={defaultImg}
-  //     role="회장"
-  //     name="이름"
-  //     nickname="별명"
-  //     major="컴퓨터공학과"
-  //   />;
 
   return (
     <ToggleContainer>
@@ -97,23 +89,36 @@ const LeaderToggle = ({ leaders }) => {
               ))}
             </LeaderList>
           </LeaderListWrapper>
+
           <LeaderListWrapper>
-            <LedaerTitle>파트장</LedaerTitle>
+            <LedaerTitle>서버 파트장</LedaerTitle>
             <LeaderList>
               {leaders.parts.server.map((leader, i) => (
                 <LeaderCard key={i} {...leader} />
               ))}
             </LeaderList>
+          </LeaderListWrapper>
+
+          <LeaderListWrapper>
+            <LedaerTitle>웹 파트장</LedaerTitle>
             <LeaderList>
               {leaders.parts.web.map((leader, i) => (
                 <LeaderCard key={i} {...leader} />
               ))}
             </LeaderList>
+          </LeaderListWrapper>
+
+          <LeaderListWrapper>
+            <LedaerTitle>모바일 파트장</LedaerTitle>
             <LeaderList>
               {leaders.parts.mobile.map((leader, i) => (
                 <LeaderCard key={i} {...leader} />
               ))}
             </LeaderList>
+          </LeaderListWrapper>
+
+          <LeaderListWrapper>
+            <LedaerTitle>PM / Design 파트장</LedaerTitle>
             <LeaderList>
               {leaders.parts.plans.map((leader, i) => (
                 <LeaderCard key={i} {...leader} />
