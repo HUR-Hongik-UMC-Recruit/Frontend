@@ -9,13 +9,14 @@ import ApplicationPage from "./application/ApplicationPage";
 import AdminJoinPage from "./admin/AdminJoinPage";
 import AdminLoginPage from "./admin/AdminLoginPage";
 import AdminLayout from "../components/admin/AdminLayout";
-import AdminRoute from "../contexts/AdminRoute";
+import AdminRoute from "./AdminRoute";
 import RecruitAlertEmailPage from "../pages/admin/RecruitAlertEmailPage";
 import DocPassEmailPage from "../pages/admin/DocPassEmailPage";
 import DocFailEmailPage from "../pages/admin/DocFailEmailPage";
 import FinalPassEmailPage from "../pages/admin/FinalPassEmailPage";
 import FinalFailEmailPage from "../pages/admin/FinalFailEmailPage";
 import AllApplicantsPage from "../pages/admin/AllApplicantsPage";
+import AdminHeader from "../components/admin/AdminHeader";
 
 function Routing() {
   // Header와 Footer 표시할 페이지
@@ -54,7 +55,7 @@ function Routing() {
         <Route
           path="/admin/*"
           element={
-            <AdminRoute>
+            <AdminLayout>
               <Routes>
                 <Route path="" element={<AllApplicantsPage />} />
                 <Route
@@ -73,7 +74,7 @@ function Routing() {
                 />
                 <Route path="all-applicants" element={<AllApplicantsPage />} />
               </Routes>
-            </AdminRoute>
+            </AdminLayout>
           }
         />
       </Routes>
