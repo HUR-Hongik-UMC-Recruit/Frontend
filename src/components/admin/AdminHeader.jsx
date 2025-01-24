@@ -77,7 +77,7 @@ const AdminHeader = () => {
   return (
     <Container>
       <Title>UMC ADMIN</Title>
-      <Menu href="/">지원자 대시보드</Menu>
+      <Menu href="/admin">지원자 대시보드</Menu>
       <Border />
       <Menu href="/admin-recruit-email">모집 알림 이메일</Menu>
       <Border />
