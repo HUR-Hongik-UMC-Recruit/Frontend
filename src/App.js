@@ -14,6 +14,7 @@ import DocPassEmailPage from "./pages/admin/DocPassEmailPage";
 import DocFailEmailPage from "./pages/admin/DocFailEmailPage";
 import FinalPassEmailPage from "./pages/admin/FinalPassEmailPage";
 import FinalFailEmailPage from "./pages/admin/FinalFailEmailPage";
+import AllApplicantsPage from "./pages/admin/AllApplicantsPage";
 
 import { EmailProvider } from "./contexts/EmailContext";
 
@@ -43,6 +44,7 @@ function App() {
         <Route path="/admin-docfail-email" element={<DocFailEmailPage />} />
         <Route path="/admin-finalpass-email" element={<FinalPassEmailPage />} />
         <Route path="/admin-finalfail-email" element={<FinalFailEmailPage />} />
+        <Route path="/admin-all-applicants" element={<AllApplicantsPage />} />
       </Routes>
       <Footer />
     </Router>
