@@ -1,13 +1,14 @@
 import React from "react";
-import { Navigate } from "react-router-dom";
+import { Navigate, useLocation } from "react-router-dom";
 import { useAuth } from "./AuthContext";
 
 function AdminRoute({ children }) {
   const { isAuthenticated } = useAuth();
+  const location = useLocation();
 
   if (!isAuthenticated) {
-    alert("인증되지 않은 사용자입니다. 로그인 페이지로 이동합니다.");
-    return <Navigate to="/login" replace />;
+    alert("접근 권한이 없습니다. 로그인 페이지로 이동합니다.");
+    return <Navigate to="/login" replace state={{ from: location }} />;
   }
 
   return children;
