@@ -36,7 +36,6 @@ const Menu = styled.a`
 `;
 
 const Border = styled.div`
-  width: 100%;
   border: 0.04119rem solid #5c6161;
 `;
 
@@ -77,17 +76,17 @@ const AdminHeader = () => {
   return (
     <Container>
       <Title>UMC ADMIN</Title>
-      <Menu href="/admin">지원자 대시보드</Menu>
+      <Menu href="/admin/all-applicants">지원자 대시보드</Menu>
       <Border />
-      <Menu href="/admin-recruit-email">모집 알림 이메일</Menu>
+      <Menu href="/admin/recruit-email">모집 알림 이메일</Menu>
       <Border />
-      <Menu href="/admin-docpass-email">서류 합격 이메일</Menu>
+      <Menu href="/admin/docpass-email">서류 합격 이메일</Menu>
       <Border />
-      <Menu href="/admin-docfail-email">서류 불합격 이메일</Menu>
+      <Menu href="/admin/docfail-email">서류 불합격 이메일</Menu>
       <Border />
-      <Menu href="/admin-finalpass-email">최종 합격 이메일</Menu>
+      <Menu href="/admin/finalpass-email">최종 합격 이메일</Menu>
       <Border />
-      <Menu href="/admin-finalfail-email">최종 불합격 이메일</Menu>
+      <Menu href="/admin/finalfail-email">최종 불합격 이메일</Menu>
       <Border />
       <Logout onClick={logoutButtonClick}>로그아웃</Logout>
     </Container>
