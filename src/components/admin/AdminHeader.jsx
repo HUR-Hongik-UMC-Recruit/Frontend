@@ -9,6 +9,7 @@ const Container = styled.div`
   width: 19.5rem;
   height: 100vh;
   background: #0e3e4f;
+  position: fixed;
 `;
 
 const Title = styled.div`
@@ -36,6 +37,7 @@ const Menu = styled.a`
 `;
 
 const Border = styled.div`
+  width: 99%;
   border: 0.04119rem solid #5c6161;
 `;
 
