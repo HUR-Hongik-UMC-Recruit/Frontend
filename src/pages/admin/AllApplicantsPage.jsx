@@ -36,7 +36,6 @@ const AllApplicantsPage = () => {
     setActivePage(pageNumber);
   };
 
-
   const tableProps = {
     title: "지원현황",
     subtitle: "UMC 전체 지원현황",
@@ -50,11 +49,7 @@ const AllApplicantsPage = () => {
       "최종합불",
       "지원서",
     ],
-    renderRow: (item) => (
-        <AllApplicantsTable 
-          items={[item]}
-        />
-      ),
+    renderRow: (item) => <AllApplicantsTable items={[item]} />,
     currentItems: currentApplicants.map((applicant) => ({
       applicantId: applicant.applicantId,
       name: applicant.name,
@@ -80,9 +75,17 @@ const SearchButton = styled.button`
   color: white;
   border: none;
   border-radius: 5px;
-  font-family: "Pretendard Variable";
-  font-weight: 600;
   cursor: pointer;
+
+  width: 6.8125rem;
+  height: 2.5rem;
+
+  font-family: "Pretendard Variable";
+  font-size: 0.9375rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 145%; /* 1.35938rem */
+  letter-spacing: 0.00938rem;
 
   &:hover {
     background: #4ca890;

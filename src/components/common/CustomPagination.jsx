@@ -80,7 +80,7 @@ const PaginationWrapper = styled.div`
     font-family: "Pretendard Variable";
     font-size: 1.203rem;
     font-style: normal;
-    font-weight: 600;
+    font-weight: 599;
     line-height: 145%; /* 27.913px */
     letter-spacing: 0.012rem;
   }
@@ -89,7 +89,7 @@ const PaginationWrapper = styled.div`
     font-family: "Pretendard Variable";
     font-size: 1.203rem;
     font-style: normal;
-    font-weight: 600;
+    font-weight: 599;
     line-height: 145%; /* 27.913px */
     letter-spacing: 0.012rem;
     color: #1d201e;

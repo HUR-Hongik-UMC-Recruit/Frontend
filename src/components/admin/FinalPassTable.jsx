@@ -10,9 +10,7 @@ const FinalPassEmail = ({ items }) => {
           {/* 이메일 (2번 헤더 아래) */}
           <TableCell>{item.phone}</TableCell>
           <TableCell>{item.part}</TableCell>
-          <TableCell $isPassed={item.finalPassStatus}>
-            합격
-          </TableCell>
+          <TableCell $isPassed={item.finalPassStatus}>합격</TableCell>
           <TableCell $finalEmailSent={item.finalEmailSent}>
             {item.finalEmailSent ? "전송 완료" : "전송 대기"}
           </TableCell>{" "}
@@ -39,7 +37,7 @@ const TableCell = styled.div`
   font-size: 1rem;
   font-style: normal;
   font-weight: ${(props) =>
-    props.$isPassed ? 600 : 400}; /* finalPassStatus가 true일 경우 600 */
+    props.$isPassed ? 599 : 400}; /* finalPassStatus가 true일 경우 600 */
   line-height: 1.5rem;
   color: ${(props) =>
     props.$isPassed
