@@ -36,7 +36,7 @@ const TableCell = styled.div`
   font-family: "Pretendard Variable";
   font-size: 1rem;
   font-style: normal;
-  font-weight: ${(props) => (props.$isPassed === false ? 600 : 400)};
+  font-weight: ${(props) => (props.$isPassed === false ? 599 : 400)};
   line-height: 1.5rem;
   color: ${(props) =>
     props.$isPassed === false

@@ -61,7 +61,7 @@ const Title = styled.h1`
   font-family: "Pretendard Variable";
   font-size: 1.75rem;
   font-style: normal;
-  font-weight: 700;
+  font-weight: 599;
   line-height: 135%; /* 37.8px */
   letter-spacing: -0.018rem;
   color: #1d201e;
@@ -72,10 +72,10 @@ const Subtitle = styled.h2`
   font-family: "Pretendard Variable";
   font-size: 1.5rem;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 350;
   line-height: 135%; /* 32.4px */
   letter-spacing: --0.015rem;
-  color: #5C6161;
+  color: #5c6161;
   margin: 0;
 `;
 
@@ -89,7 +89,7 @@ const TableHeader = styled.div`
 
   span {
     font-family: "Pretendard Variable";
-    font-weight: 600;
+    font-weight: 575;
     font-size: 1.063rem;
     color: #5c6161;
   }
