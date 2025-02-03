@@ -78,7 +78,7 @@ const Subtitle = styled.h2`
 
 const TableHeader = styled.div`
   display: grid;
-  grid-template-columns: 1fr 2.5fr 1.7fr 1fr 1fr 1fr 0.7fr; /* 6개 헤더 비율 */
+  grid-template-columns: 1fr 2.5fr 1.7fr 1fr 1fr 1fr 0.7fr;
   background: #edf4f5;
   border-radius: 0.625rem;
   margin-bottom: 0.375rem;

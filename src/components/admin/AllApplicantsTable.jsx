@@ -15,6 +15,7 @@ const AllApplicantsTable = ({ items }) => {
       const response = await axios.get(`${apiUrl}/applicant/${applicantId}`);
       if (response.data.isSuccess) {
         console.log("지원서: ", response.data.result);
+        alert("지원서 조회 성공: 임시로 콘솔에서 확인");
       }
     } catch (error) {
       console.error("지원서 조회 에러", error);

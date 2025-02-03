@@ -79,11 +79,11 @@ const Subtitle = styled.h2`
 
 const TableHeader = styled.div`
   display: grid;
-  grid-template-columns:  1fr 4fr 2.5fr 1.5fr 3fr 1.5fr; /* 6개 헤더 비율 */
+  grid-template-columns:  1fr 4fr 2.5fr 1.5fr 3fr 1fr; /* 6개 헤더 비율 */
   background: #edf4f5;
   border-radius: 0.625rem;
   margin-bottom: 0.375rem;
-  padding: 0.875rem 1.688rem 0.875rem 2.7rem;
+  padding: 0.875rem 1.688rem 0.875rem 2.5rem;
 
   span {
     font-family: "Pretendard Variable";
