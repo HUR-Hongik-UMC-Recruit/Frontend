@@ -31,7 +31,7 @@ const TableRow = styled.div`
   border-bottom: 0.063rem solid #e1e9ea;
 
   display: grid;
-  grid-template-columns: 0.9fr 3fr 2fr 1.2fr 4fr 0.8fr;
+  grid-template-columns: 1fr 4fr 2.5fr 1.5fr 3fr 1fr;
 `;
 
 const TableCell = styled.div`

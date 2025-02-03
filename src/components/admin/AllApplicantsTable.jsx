@@ -1,6 +1,67 @@
 import styled from "styled-components";
+import axios from "axios";
+import { useState } from "react";
+import ToggleMenu from "./ToggleMenu";
 
-const AllApplicantsTable = ({ items}) => {
+const AllApplicantsTable = ({ items }) => {
+  const apiUrl = process.env.REACT_APP_API_URL;
+
+  const [docPassStatus, setDocPassStatus] = useState({});
+  const [finalPassStatus, setFinalPassStatus] = useState({});
+
+  // 특정 지원자의 지원서 조회
+  const handleViewApplication = async (applicantId) => {
+    try {
+      const response = await axios.get(`${apiUrl}/applicant/${applicantId}`);
+      if (response.data.isSuccess) {
+        console.log("지원서: ", response.data.result);
+        alert("지원서 조회 성공: 임시로 콘솔에서 확인");
+      }
+    } catch (error) {
+      console.error("지원서 조회 에러", error);
+      console.log("applicantId", applicantId);
+      alert("지원서 조회 중 오류가 발생했습니다. 다시 시도해주세요.");
+    }
+  };
+
+  // 특정 지원자의 합불 상태 변경
+  const updateDocPassStatus = async (applicantId, value) => {
+    try {
+      const response = await axios.patch(
+        `${apiUrl}/applicant/${applicantId}/docPassStatus?docPassStatus=${
+          value === "합격"
+        }`
+      );
+      if (response.data.isSuccess) {
+        window.location.reload(); // 성공 시 페이지 새로고침
+      }
+    } catch (error) {
+      console.error("서류 합불 상태 업데이트 에러", error);
+      console.log("applicantId ", applicantId);
+      alert(
+        "서류 합불 상태 업데이트 중 오류가 발생했습니다. 다시 시도해주세요."
+      );
+    }
+  };
+
+  const updateFinalPassStatus = async (applicantId, value) => {
+    try {
+      const response = await axios.patch(
+        `${apiUrl}/applicant/${applicantId}/finalPassStatus?finalPassStatus=${
+          value === "합격"
+        }`
+      );
+      if (response.data.isSuccess) {
+        window.location.reload(); // 성공 시 페이지 새로고침
+      }
+    } catch (error) {
+      console.error("최종 합불 상태 업데이트 에러", error);
+      console.log("applicantId ", applicantId);
+      alert(
+        "서류 합불 상태 업데이트 중 오류가 발생했습니다. 다시 시도해주세요."
+      );
+    }
+  };
 
   return (
     <>
@@ -11,10 +72,36 @@ const AllApplicantsTable = ({ items}) => {
           <TableCell>{item.phone}</TableCell>
           <TableCell>{item.part}</TableCell>
 
-          <TableCell>합불</TableCell>
-          <TableCell>합불</TableCell>
+          <TableCell>
+            <ToggleMenu
+              value={item.docPassStatus ? "합격" : "불합격"}
+              onChange={(value) => {
+                setDocPassStatus({
+                  ...docPassStatus,
+                  [item.applicantId]: value,
+                });
+                updateDocPassStatus(item.applicantId, value); // 상태 업데이트
+              }}
+            />
+          </TableCell>
+          <TableCell>
+            <ToggleMenu
+              value={item.finalPassStatus ? "합격" : "불합격"}
+              onChange={(value) => {
+                setFinalPassStatus({
+                  ...finalPassStatus,
+                  [item.applicantId]: value,
+                });
+                updateFinalPassStatus(item.applicantId, value); // 상태 업데이트
+              }}
+            />
+          </TableCell>
 
-          <TableCell>보기</TableCell>
+          <TableCell>
+            <ViewButton onClick={() => handleViewApplication(item.applicantId)}>
+              보기
+            </ViewButton>
+          </TableCell>
         </TableRow>
       ))}
     </>
@@ -29,7 +116,8 @@ const TableRow = styled.div`
   border-bottom: 0.063rem solid #e1e9ea;
 
   display: grid;
-  grid-template-columns: 0.9fr 3fr 2fr 2fr 2fr 2fr 0.8fr;
+  grid-template-columns: 1fr 2.5fr 1.7fr 1fr 1fr 1fr 0.7fr;
+
 `;
 
 const TableCell = styled.div`
@@ -40,40 +128,22 @@ const TableCell = styled.div`
   line-height: 1.5rem;
   color: ${(props) => (props.completed ? "#2B9176" : "#5C6161")};
   padding: 0.313rem;
-
-  span:last-child {
-    // 마지막 요소만 중앙 정렬
-    justify-self: center;
-  }
 `;
 
-const StatusButton = styled.button`
-  padding: 6px 16px;
-  background: ${(props) =>
-    props.$status ? "rgba(144, 224, 230, 0.4)" : "white"};
-  border: 1px solid ${(props) => (props.$status ? "#60C1C3" : "#A2ABAB")};
-  border-radius: 5px;
-  color: ${(props) => (props.$status ? "#60C1C3" : "#A2ABAB")};
-  font-weight: 600;
-  position: relative;
-  cursor: pointer;
-`;
-
-const ToggleMenu = styled.div`
-  position: absolute;
-  top: 100%;
-  left: 0;
+const ViewButton = styled.button`
+  padding: 0.375rem 0.75rem;
   background: white;
-  border: 1px solid #e1e9ea;
-  border-radius: 5px;
-  width: 100%;
-  z-index: 1;
-`;
-
-const ToggleItem = styled.div`
-  padding: 8px 16px;
+  border: 1px solid #2b9176;
+  border-radius: 0.313rem;
+  color: #2b9176;
+  font-family: "Pretendard Variable";
+  font-size: 0.875rem;
+  font-weight: 600;
   cursor: pointer;
+  transition: all 0.2s ease-in-out;
+
   &:hover {
-    background: #edf4f5;
+    background: #90e6c9;
+    color: white;
   }
 `;

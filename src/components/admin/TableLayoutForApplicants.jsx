@@ -38,16 +38,15 @@ const TableLayoutForApplicants = ({
 export default TableLayoutForApplicants;
 
 const Container = styled.div`
-  width: 100%;
-  box-sizing: border-box;
+  padding: 0 2.25rem; // 좌우 패딩딩
+  margin-left: 19.5rem; // 왼쪽 배너 width만큼 margin
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: center; // 수직 중앙 정렬
   min-height: 100vh;
 `;
 
 const ContentWrapper = styled.div`
-  width: 68.75rem;
+  width: 100%; // Container 내부에서 꽉 차게
 `;
 
 const HeaderSection = styled.div`
@@ -61,9 +60,8 @@ const Title = styled.h1`
   font-family: "Pretendard Variable";
   font-size: 1.75rem;
   font-style: normal;
-  font-weight: 599;
-  line-height: 135%; /* 37.8px */
-  letter-spacing: -0.018rem;
+  font-weight: 700;
+  line-height: 2.363rem;
   color: #1d201e;
   margin: 0;
 `;
@@ -72,30 +70,25 @@ const Subtitle = styled.h2`
   font-family: "Pretendard Variable";
   font-size: 1.5rem;
   font-style: normal;
-  font-weight: 350;
-  line-height: 135%; /* 32.4px */
-  letter-spacing: --0.015rem;
+  font-weight: 400;
+  line-height: 2.025rem;
   color: #5c6161;
   margin: 0;
 `;
 
 const TableHeader = styled.div`
   display: grid;
-  grid-template-columns: 0.9fr 3fr 2fr 2fr 2fr 2fr 0.8fr; /* 6개 헤더 비율 */
+  grid-template-columns: 1fr 2.5fr 1.7fr 1fr 1fr 1fr 0.7fr;
   background: #edf4f5;
   border-radius: 0.625rem;
   margin-bottom: 0.375rem;
-  padding: 0.875rem 1.688rem 0.875rem 2.188rem;
+  padding: 0.875rem 1.688rem 0.875rem 2.7rem;
 
   span {
     font-family: "Pretendard Variable";
-    font-weight: 575;
+    font-weight: 600;
     font-size: 1.063rem;
     color: #5c6161;
-  }
-
-  span:last-child {
-    // 마지막 요소만 중앙 정렬
-    justify-self: center;
+    line-height: 1.541rem;
   }
 `;

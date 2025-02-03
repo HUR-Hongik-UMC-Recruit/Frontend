@@ -19,6 +19,7 @@ const AllApplicantsPage = () => {
     try {
       const response = await axios.get(`${apiUrl}/applicant`);
       if (response.data.isSuccess) {
+        console.log(response.data.result);
         setApplicants(response.data.result);
         setTotalItemsCount(response.data.result.length);
       }
@@ -71,21 +72,21 @@ const AllApplicantsPage = () => {
 
 const SearchButton = styled.button`
   padding: 0.5rem 1rem;
-  background: #5fbda1;
-  color: white;
+  background: #B1F4DD;
+  color: #2B9176;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  margin-bottom: 0.75rem;
 
   width: 6.8125rem;
   height: 2.5rem;
 
   font-family: "Pretendard Variable";
-  font-size: 0.9375rem;
+  font-size: 0.875rem;
   font-style: normal;
-  font-weight: 500;
-  line-height: 145%; /* 1.35938rem */
-  letter-spacing: 0.00938rem;
+  font-weight: 600;
+  line-height: 1.269rem;
 
   &:hover {
     background: #4ca890;
