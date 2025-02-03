@@ -29,7 +29,7 @@ const TableRow = styled.div`
   border-bottom: 0.063rem solid #e1e9ea;
 
   display: grid;
-  grid-template-columns: 0.9fr 3fr 2fr 1.2fr 4fr 0.8fr;
+  grid-template-columns: 1fr 4fr 2.5fr 1.5fr 3fr 1.5fr;
 `;
 
 const TableCell = styled.div`
@@ -47,8 +47,4 @@ const TableCell = styled.div`
       : "#5C6161"}; /* finalPassStatus가 true일 경우 #60C1C3 (합격) */
   padding: 0.313rem;
 
-  span:last-child {
-    // 마지막 요소만 중앙 정렬
-    justify-self: center;
-  }
 `;

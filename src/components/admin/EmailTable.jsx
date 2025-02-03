@@ -30,7 +30,7 @@ const TableRow = styled.div`
   border-bottom: 0.063rem solid #e1e9ea;
 
   display: grid;
-  grid-template-columns: 0.7fr 3fr 2fr 1fr 4fr 0.8fr;
+  grid-template-columns: 1fr 4fr 2.5fr 1.5fr 3fr 1.5fr;
 `;
 
 const TableCell = styled.div`
@@ -42,8 +42,4 @@ const TableCell = styled.div`
   color: ${(props) => (props.completed ? "#2B9176" : "#5C6161")};
   padding: 0.313rem;
 
-  span:last-child {
-    // 마지막 요소만 중앙 정렬
-    justify-self: center;
-  }
 `;
