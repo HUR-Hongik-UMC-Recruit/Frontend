@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import TableLayoutForApplicants from "../../components/admin/TableLayoutForApplicants";
 import AllApplicantsTable from "../../components/admin/AllApplicantsTable";
-import styled from "styled-components";
 import axios from "axios";
 
 const AllApplicantsPage = () => {
@@ -15,9 +14,27 @@ const AllApplicantsPage = () => {
 
   const apiUrl = process.env.REACT_APP_API_URL;
 
-  const fetchApplicants = async () => {
+  const fetchApplicants = async (filters = {}) => {
     try {
-      const response = await axios.get(`${apiUrl}/applicant`);
+      const response = await axios.get(`${apiUrl}/applicant`, {
+        params: {
+          part: filters.part !== "파트별" ? filters.part : undefined,
+          docPassStatus:
+            filters.docPassStatus === "합격"
+              ? true
+              : filters.docPassStatus === "불합격"
+              ? false
+              : undefined,
+          finalPassStatus:
+            filters.finalPassStatus === "합격"
+              ? true
+              : filters.finalPassStatus === "불합격"
+              ? false
+              : undefined,
+          keyword: filters.keyword || undefined,
+        },
+      });
+
       if (response.data.isSuccess) {
         console.log(response.data.result);
         setApplicants(response.data.result);
@@ -33,6 +50,11 @@ const AllApplicantsPage = () => {
     fetchApplicants();
   }, []);
 
+  const handleFilterChange = (filterValues) => {
+    // 필터 검색을 처리할 함수
+    fetchApplicants(filterValues);
+  };
+
   const handlePageChange = (pageNumber) => {
     setActivePage(pageNumber);
   };
@@ -40,7 +62,6 @@ const AllApplicantsPage = () => {
   const tableProps = {
     title: "지원현황",
     subtitle: "UMC 전체 지원현황",
-    actionButton: <SearchButton>검색</SearchButton>,
     headers: [
       "이름",
       "이메일",
@@ -65,32 +86,14 @@ const AllApplicantsPage = () => {
       totalItemsCount,
       handlePageChange,
     },
+    filterSearchOne: handleFilterChange, // handleFilterChange 함수를 전달
   };
 
-  return <TableLayoutForApplicants {...tableProps} />;
+  return (
+    <>
+      <TableLayoutForApplicants {...tableProps} />
+    </>
+  );
 };
-
-const SearchButton = styled.button`
-  padding: 0.5rem 1rem;
-  background: #B1F4DD;
-  color: #2B9176;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-bottom: 0.75rem;
-
-  width: 6.8125rem;
-  height: 2.5rem;
-
-  font-family: "Pretendard Variable";
-  font-size: 0.875rem;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 1.269rem;
-
-  &:hover {
-    background: #4ca890;
-  }
-`;
 
 export default AllApplicantsPage;
