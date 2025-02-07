@@ -18,6 +18,7 @@ import FinalFailEmailPage from "../pages/admin/FinalFailEmailPage";
 import AllApplicantsPage from "../pages/admin/AllApplicantsPage";
 import { AuthProvider } from "../contexts/AuthContext";
 import LeaderPage from "./leader/LeaderPage";
+import ProjectPage from "./project/ProjectPage";
 
 function Routing() {
   // Header와 Footer 표시할 페이지
@@ -29,6 +30,7 @@ function Routing() {
     "/recruitment",
     "/apply",
     "/leader",
+    "/project",
   ].includes(pathname);
 
   return (
@@ -40,6 +42,7 @@ function Routing() {
         <Route path="/main" element={<HomePage />} />
         <Route path="*" element={<NotFoundPage />} />
         <Route path="/leader" element={<LeaderPage />} />
+        <Route path="/project" element={<ProjectPage />} />
         <Route path="/recruitment" element={<RecruitmentPage />} />
         <Route
           path="/apply"
