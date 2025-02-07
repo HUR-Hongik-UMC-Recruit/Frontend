@@ -1,14 +1,15 @@
 import styled from "styled-components";
 import CustomPagination from "../../components/common/CustomPagination";
+import Filter from "./Filter";
 
 const TableLayoutForApplicants = ({
   title,
   subtitle,
-  actionButton,
   headers,
   renderRow,
   currentItems,
   paginationProps,
+  filterSearchOne // AllApplicantsPage에서 받은 prop 함수
 }) => {
   return (
     <Container>
@@ -18,7 +19,9 @@ const TableLayoutForApplicants = ({
           <Subtitle>{subtitle}</Subtitle>
         </HeaderSection>
 
-        {actionButton}
+        <FilterContainer>
+          <Filter filterSearchTwo={filterSearchOne} /> {/* Filter 컴포넌트에 전달하기 */}
+        </FilterContainer>
 
         <TableHeader>
           {headers.map((header, index) => (
@@ -43,6 +46,10 @@ const Container = styled.div`
   display: flex;
   align-items: center; // 수직 중앙 정렬
   min-height: 100vh;
+`;
+
+const FilterContainer = styled.div`
+  margin-bottom: 0.75rem; // 테이블 헤더와의 간격
 `;
 
 const ContentWrapper = styled.div`
