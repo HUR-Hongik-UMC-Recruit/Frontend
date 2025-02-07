@@ -434,10 +434,9 @@ const ApplicationPage = () => {
       console.log("지원서 제출 서버 응답: ", response.data);
       setOpen(false);
       setSuccessOpen(true);
-      alert("지원서 제출 성공")
     } catch (e) {
       console.log("지원서 제출 에러 발생: ", e);
-      alert("지원서 제출 실패")
+      alert("지원서 제출 실패");
       setOpen(false);
     }
   };
