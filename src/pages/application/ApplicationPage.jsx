@@ -208,7 +208,7 @@ const ApplicationPage = () => {
   const [applicantDTO, setApplicantDTO] = useState({
     name: "",
     nickName: "",
-    //email: authenticatedEmail,
+    email: authenticatedEmail,
     phone: "",
     gender: "",
     birth: "",
