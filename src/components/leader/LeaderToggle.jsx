@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import DownIcon from "../../assets/icons/DownIcon.svg";
 import LeaderCard from "./LeaderCard";
+import axios from "axios";
 
 const ToggleContainer = styled.div`
   width: 100%;
@@ -68,13 +69,35 @@ const LeaderList = styled.div`
   gap: 1rem;
 `;
 
-const LeaderToggle = ({ leaders }) => {
+const LeaderToggle = ({ generation }) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [leaders, setLeaders] = useState([]);
+
+  // API 연결
+  const apiUrl = process.env.REACT_APP_API_URL;
+  const getLeaders = async () => {
+    // get 요청
+    try {
+      const response = await axios.get(
+        `${apiUrl}/leaders?generation=${generation}`
+      );
+      setLeaders(response.data);
+      console.log("운영진 get 서버 응답: ", response.data);
+    } catch (e) {
+      console.log("운영진 get 에러 발생: ", e);
+    }
+  };
+
+  useEffect(() => {
+    if (isOpen) {
+      getLeaders();
+    }
+  }, [isOpen]);
 
   return (
     <ToggleContainer>
       <ToggleHeader onClick={() => setIsOpen(!isOpen)}>
-        <ToggleTitle>{leaders.generation}</ToggleTitle>
+        <ToggleTitle>{generation}</ToggleTitle>
         <ToggleIcon $isOpen={isOpen}>
           <img src={DownIcon} alt="toggle" />
         </ToggleIcon>
