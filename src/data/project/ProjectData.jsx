@@ -6,8 +6,8 @@ const ProjectData = {
   generation: "7기",
   link: "",
   team: {
-    pm: { nickname: "이콩", name: "하지희" },
-    design: { nickname: "유니", name: "최윤경" },
+    pm: [{ nickname: "이콩", name: "하지희" }],
+    design: [{ nickname: "유니", name: "최윤경" }],
     frontend: [
       { nickname: "션", name: "전시연" },
       { nickname: "그린", name: "전지원" },
