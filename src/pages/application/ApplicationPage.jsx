@@ -208,7 +208,7 @@ const ApplicationPage = () => {
   const [applicantDTO, setApplicantDTO] = useState({
     name: "",
     nickName: "",
-    //email: authenticatedEmail,
+    email: authenticatedEmail,
     phone: "",
     gender: "",
     birth: "",
@@ -336,32 +336,32 @@ const ApplicationPage = () => {
   // 누락된 항목 있는지 검증 및 토스트 팝업 메세지 return
   const validateForm = () => {
     // PersonalInfo 검증
-    // for (const field of personalInfoFields) {
-    //   if (
-    //     !applicantDTO[field.field] ||
-    //     applicantDTO[field.field].trim() === ""
-    //   ) {
-    //     setTitle("모든 항목에 내용을 작성해주세요");
-    //     scrollToField(refs[field.field]);
-    //     return `${field.text} 항목에 대한 내용이 누락되었습니다.`;
-    //   }
-    // }
+    for (const field of personalInfoFields) {
+      if (
+        !applicantDTO[field.field] ||
+        applicantDTO[field.field].trim() === ""
+      ) {
+        setTitle("모든 항목에 내용을 작성해주세요");
+        scrollToField(refs[field.field]);
+        return `${field.text} 항목에 대한 내용이 누락되었습니다.`;
+      }
+    }
 
     // answers 검증
-    // for (const question of questionFields) {
-    //   // 필수 항목이 아닌 질문은 넘어가기
-    //   if (question.questionId === 4) {
-    //     continue;
-    //   }
-    //   const answer = applicantDTO.answers.find(
-    //     (ans) => ans.questionId === question.questionId
-    //   );
-    //   if (!answer || !answer.answerText.trim()) {
-    //     setTitle("모든 항목에 내용을 작성해주세요");
-    //     scrollToField(questionRefs.current[question.questionId]);
-    //     return `${question.text}에 대한 답변이 누락되었습니다.`;
-    //   }
-    // }
+    for (const question of questionFields) {
+      // 필수 항목이 아닌 질문은 넘어가기
+      if (question.questionId === 4) {
+        continue;
+      }
+      const answer = applicantDTO.answers.find(
+        (ans) => ans.questionId === question.questionId
+      );
+      if (!answer || !answer.answerText.trim()) {
+        setTitle("모든 항목에 내용을 작성해주세요");
+        scrollToField(questionRefs.current[question.questionId]);
+        return `${question.text}에 대한 답변이 누락되었습니다.`;
+      }
+    }
 
     // 이메일 인증 상태 검증
     if (!emailAuthStatus) {
@@ -370,12 +370,12 @@ const ApplicationPage = () => {
       return "이메일 인증을 완료해주세요";
     }
 
+    // 동의 항목 검증
     if (!information) {
       setTitle("모든 약관 항목에 동의해주세요");
       scrollToField(agreeRefs.infoRef);
       return "개인정보 수집 및 이용 동의 항목에 동의해주세요";
     }
-
     if (!passion) {
       setTitle("모든 약관 항목에 동의해주세요");
       scrollToField(agreeRefs.passionRef);
@@ -434,10 +434,9 @@ const ApplicationPage = () => {
       console.log("지원서 제출 서버 응답: ", response.data);
       setOpen(false);
       setSuccessOpen(true);
-      alert("지원서 제출 성공")
     } catch (e) {
       console.log("지원서 제출 에러 발생: ", e);
-      alert("지원서 제출 실패")
+      alert("지원서 제출 실패");
       setOpen(false);
     }
   };

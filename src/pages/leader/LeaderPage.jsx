@@ -1,6 +1,4 @@
 import styled from "styled-components";
-import defaultImg from "../../assets/icons/LeaderWOW.svg";
-import LeaderCard from "../../components/leader/LeaderCard";
 import leaders from "../../data/leader/LeaderData";
 import LeaderToggle from "../../components/leader/LeaderToggle";
 
@@ -46,14 +44,16 @@ const SectionDetail = styled.div`
 `;
 
 const LeaderPage = () => {
+  const generations = ["6th", "7th", "8th"];
+
   return (
     <LeaderContainer>
       <Section>
         <SectionTitle>운영진</SectionTitle>
         <SectionDetail>UMC를 이끌어갈 운영진을 소개합니다</SectionDetail>
       </Section>
-      {leaders.map((leader, index) => (
-        <LeaderToggle key={index} leaders={leader} />
+      {generations.map((generation) => (
+        <LeaderToggle key={generation} generation={generation} />
       ))}
     </LeaderContainer>
   );
