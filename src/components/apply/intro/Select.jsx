@@ -123,7 +123,7 @@ const Option = styled.button`
   cursor: pointer;
 
   &:hover {
-    font-weight: 600;
+    font-weight: 599;
     background: ${(props) => (props.isSelected ? "#2B9176" : "#DFFAF1")};
     color: ${(props) => (props.isSelected ? "#FFF" : "#353838")};
   }

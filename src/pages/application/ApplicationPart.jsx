@@ -93,7 +93,7 @@ const Radio = styled.input`
 
   /* 체크된 상태일 때 스타일 변경 */
   &: checked + ${RadioWrapper} {
-    font-weight: 550;
+    font-weight: 599;
     background: #dffaf1;
     border-color: #2b9176;
     color: #353838;

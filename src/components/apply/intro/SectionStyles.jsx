@@ -117,7 +117,7 @@ export const RadioButton = styled.button`
   background: ${(props) => (props.$active ? "#DFFAF1" : "#FCFFFF")};
   border: 0.125rem solid ${(props) => (props.$active ? "#2B9176" : "#D1DADB")};
   border-radius: 0.75rem;
-  font-weight: ${(props) => (props.$active ? "600" : "400")};
+  font-weight: ${(props) => (props.$active ? "599" : "400")};
   color: #353838;
 `;
 
