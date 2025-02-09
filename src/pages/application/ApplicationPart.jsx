@@ -113,6 +113,7 @@ const AnswerBig = styled.textarea`
   font-weight: 400;
   line-height: 1.875rem; /* 187.5% */
   color: #353838;
+  box-sizing: border-box;
 
   &::placeholder {
     color: #818989;
@@ -147,7 +148,7 @@ const AnswerSmall = styled.textarea`
 
 const CountText = styled.span`
   position: absolute;
-  right: -1rem;
+  right: 1.125rem;
   bottom: 1rem;
   color: #818989;
   font-size: 1rem;
@@ -155,7 +156,7 @@ const CountText = styled.span`
 
 const AnswerWrapper = styled.div`
   position: relative;
-  width: 98%;
+  width: 100%;
 `;
 
 const ApplicationPart = ({ updateApplicantDTO, handleAnswerChange, charCounts, refs }) => {
