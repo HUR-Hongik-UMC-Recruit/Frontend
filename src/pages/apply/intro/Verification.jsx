@@ -148,7 +148,6 @@ export default Verification;
 const StyledFormGroup = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  width: 44.313rem;
+  max-width: 44.313rem;
   gap: 0.938rem;
 `;
