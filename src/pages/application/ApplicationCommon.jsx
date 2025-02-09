@@ -211,7 +211,7 @@ const CountText = styled.span`
 
 const AnswerWrapper = styled.div`
   position: relative;
-  width: 100%;
+  width: 98%;
 `;
 
 const ApplicationCommon = ({
