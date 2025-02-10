@@ -202,6 +202,7 @@ const ApplicationPage = () => {
     1: 0,
     2: 0,
     3: 0,
+    6: 0,
   }); // 글자수 카운트
 
   // applicantDTO, file 상태 관리
@@ -261,7 +262,8 @@ const ApplicationPage = () => {
       questionId === 0 ||
       questionId === 1 ||
       questionId === 2 ||
-      questionId === 3
+      questionId === 3 ||
+      questionId === 6
     ) {
       setCharCounts((prev) => ({
         ...prev,
@@ -472,6 +474,7 @@ const ApplicationPage = () => {
       <ApplicationPart
         updateApplicantDTO={updateApplicantDTO}
         handleAnswerChange={handleAnswerChange}
+        charCounts={charCounts}
         refs={questionRefs.current}
       />
 

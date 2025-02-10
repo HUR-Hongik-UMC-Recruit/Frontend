@@ -102,6 +102,7 @@ const Radio = styled.input`
 
 const AnswerBig = styled.textarea`
   font-family: "Pretendard Variable";
+  width: 100%;
   height: 15.063rem;
   padding: 0.938rem 1.125rem;
   background: #fcffff;
@@ -112,6 +113,7 @@ const AnswerBig = styled.textarea`
   font-weight: 400;
   line-height: 1.875rem; /* 187.5% */
   color: #353838;
+  box-sizing: border-box;
 
   &::placeholder {
     color: #818989;
@@ -144,7 +146,20 @@ const AnswerSmall = styled.textarea`
   }
 `;
 
-const ApplicationPart = ({ updateApplicantDTO, handleAnswerChange, refs }) => {
+const CountText = styled.span`
+  position: absolute;
+  right: 1.125rem;
+  bottom: 1rem;
+  color: #818989;
+  font-size: 1rem;
+`;
+
+const AnswerWrapper = styled.div`
+  position: relative;
+  width: 100%;
+`;
+
+const ApplicationPart = ({ updateApplicantDTO, handleAnswerChange, charCounts, refs }) => {
   // 파트 선택 여부
   const [selectPart, setSelectPart] = useState("Plan");
   const handlePartChange = (e) => {
@@ -181,12 +196,16 @@ const ApplicationPart = ({ updateApplicantDTO, handleAnswerChange, refs }) => {
 
       <QuestionWrapper>
         <Question>2. {selectPart} 트랙에 지원하는 이유는 무엇인가요?</Question>
+        <AnswerWrapper>
         <AnswerBig
           type="text"
           placeholder="500자 이하로 얘기해주세요"
           onChange={(e) => handleAnswerChange(6, e)}
           ref={refs[6]}
+          maxLength={500}
         />
+        <CountText>{charCounts[6] || 0}/500자</CountText>
+        </AnswerWrapper>
       </QuestionWrapper>
 
       <QuestionWrapper>

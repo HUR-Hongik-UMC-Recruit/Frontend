@@ -135,7 +135,7 @@ const Header = () => {
         </HomeWrapper>
         <MenuWrapper>
           <MenuListWrapper>
-            <MenuList href="" $isApplyPage={isApplyPage}>
+            <MenuList href="/project" $isApplyPage={isApplyPage}>
               프로젝트
             </MenuList>
             <MenuList href="/leader" $isApplyPage={isApplyPage}>
