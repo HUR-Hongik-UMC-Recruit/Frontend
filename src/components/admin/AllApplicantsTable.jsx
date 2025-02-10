@@ -2,12 +2,15 @@ import styled from "styled-components";
 import axios from "axios";
 import { useState } from "react";
 import ToggleMenu from "./ToggleMenu";
+import AdminModal from "./AdminModal";
 
 const AllApplicantsTable = ({ items }) => {
   const apiUrl = process.env.REACT_APP_API_URL;
 
   const [docPassStatus, setDocPassStatus] = useState({});
   const [finalPassStatus, setFinalPassStatus] = useState({});
+  const [isOpen, setIsOpen] = useState(false); // 모달창 열고 닫기
+  const [application, setApplication] = useState(null);
 
   // 특정 지원자의 지원서 조회
   const handleViewApplication = async (applicantId) => {
@@ -15,13 +18,19 @@ const AllApplicantsTable = ({ items }) => {
       const response = await axios.get(`${apiUrl}/applicant/${applicantId}`);
       if (response.data.isSuccess) {
         console.log("지원서: ", response.data.result);
-        alert("지원서 조회 성공: 임시로 콘솔에서 확인");
+        setApplication(response.data.result);
+        setIsOpen(true); // 모달 상태
       }
     } catch (error) {
       console.error("지원서 조회 에러", error);
       console.log("applicantId", applicantId);
       alert("지원서 조회 중 오류가 발생했습니다. 다시 시도해주세요.");
     }
+  };
+
+  const closeModal = () => {
+    setIsOpen(false);
+    setApplication(null);
   };
 
   // 특정 지원자의 합불 상태 변경
@@ -104,6 +113,8 @@ const AllApplicantsTable = ({ items }) => {
           </TableCell>
         </TableRow>
       ))}
+
+      <AdminModal isOpen={isOpen} closeModal={closeModal} application={application}/>
     </>
   );
 };
@@ -117,7 +128,6 @@ const TableRow = styled.div`
 
   display: grid;
   grid-template-columns: 1fr 2.5fr 1.7fr 1fr 1fr 1fr 0.7fr;
-
 `;
 
 const TableCell = styled.div`
