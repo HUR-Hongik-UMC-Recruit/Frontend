@@ -31,7 +31,7 @@ const RecruitmentSchedule = () => {
   }, []);
 
   return (
-    <BackgroundContainer ref={timelineRef} r>
+    <BackgroundContainer ref={timelineRef}>
       <ContentWrapper>
         <ScheduleContent>
           <SectionHeader title="모집 일정" subtitle="Recruitment Schedule" />

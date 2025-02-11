@@ -13,6 +13,7 @@ const FAQ = () => {
         <FAQListContainer>
           {faqData.map((faq, index) => (
             <FAQItemWrapper
+              key={index}
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}

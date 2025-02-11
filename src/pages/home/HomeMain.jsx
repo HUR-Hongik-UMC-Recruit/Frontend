@@ -157,9 +157,6 @@ const HomeMain = ({ downClick }) => {
       }
     }, speed);
 
-    console.log("text: ", text);
-    console.log("Distext: ", displayedText);
-
     return () => {
       clearInterval(typeWriter);
     };
