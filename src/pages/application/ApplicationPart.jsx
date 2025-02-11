@@ -92,7 +92,7 @@ const Radio = styled.input`
   clip-path: inset(50%);
 
   /* 체크된 상태일 때 스타일 변경 */
-  &: checked + ${RadioWrapper} {
+  &:checked + ${RadioWrapper} {
     font-weight: 599;
     background: #dffaf1;
     border-color: #2b9176;
@@ -159,7 +159,12 @@ const AnswerWrapper = styled.div`
   width: 100%;
 `;
 
-const ApplicationPart = ({ updateApplicantDTO, handleAnswerChange, charCounts, refs }) => {
+const ApplicationPart = ({
+  updateApplicantDTO,
+  handleAnswerChange,
+  charCounts,
+  refs,
+}) => {
   // 파트 선택 여부
   const [selectPart, setSelectPart] = useState("Plan");
   const handlePartChange = (e) => {
@@ -197,14 +202,14 @@ const ApplicationPart = ({ updateApplicantDTO, handleAnswerChange, charCounts, r
       <QuestionWrapper>
         <Question>2. {selectPart} 트랙에 지원하는 이유는 무엇인가요?</Question>
         <AnswerWrapper>
-        <AnswerBig
-          type="text"
-          placeholder="500자 이하로 얘기해주세요"
-          onChange={(e) => handleAnswerChange(6, e)}
-          ref={refs[6]}
-          maxLength={500}
-        />
-        <CountText>{charCounts[6] || 0}/500자</CountText>
+          <AnswerBig
+            type="text"
+            placeholder="500자 이하로 얘기해주세요"
+            onChange={(e) => handleAnswerChange(6, e)}
+            ref={refs[6]}
+            maxLength={500}
+          />
+          <CountText>{charCounts[6] || 0}/500자</CountText>
         </AnswerWrapper>
       </QuestionWrapper>
 

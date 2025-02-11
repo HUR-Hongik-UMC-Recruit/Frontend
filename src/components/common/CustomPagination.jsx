@@ -9,7 +9,6 @@ export default function CustomPagination({
   totalItemsCount,
   handlePageChange,
 }) {
-
   return (
     <PaginationWrapper>
       <Pagination
@@ -70,7 +69,7 @@ const PaginationWrapper = styled.div`
 
   ul.pagination li a {
     text-decoration: none;
-    background-color: none;
+    background-color: transparent;
     padding: 0.55rem 1.1rem;
     border-radius: 0.75rem;
     color: #a2abab;
