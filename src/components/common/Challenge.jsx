@@ -104,7 +104,7 @@ const Challenge = () => {
           하세요!
         </ChallengeText>
         <ChallengeButton onClick={toRecruit}>
-          모집 알림 신청하러 가기 <img src={arrowNext} />
+          모집 알림 신청하러 가기 <img src={arrowNext} alt='arrownext' />
         </ChallengeButton>
       </ChallengeWrapper>
     </ChallengeContainer>

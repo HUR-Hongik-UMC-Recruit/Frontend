@@ -15,7 +15,7 @@ const AdminModal = ({ isOpen, closeModal, application }) => {
     <ModalContainer onClick={handleOverlayClick}>
       <ModalContent>
         <CloseBtn onClick={closeModal}>
-          <img src={FileClose} />
+          <img src={FileClose} alt='fileclose' />
         </CloseBtn>
         {application && (
           <ApplicationContent>

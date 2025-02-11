@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import styled from "styled-components";
 import upload from "../../assets/icons/FileUpload.svg";
 import close from "../../assets/icons/FileClose.svg";
@@ -38,22 +38,6 @@ const Question = styled.label`
   line-height: 1.875rem; /* 150% */
 `;
 
-const RadioPartWrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  gap: 0.62rem;
-  justify-content: flex-end;
-`;
-
-const RadioLabel = styled.label`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 8.75rem;
-  height: 3.75rem;
-  gap: 1.9rem;
-`;
-
 const RadioWrapper = styled.span`
   display: flex;
   align-items: center;
@@ -78,25 +62,6 @@ const RadioWrapper = styled.span`
   &:hover {
     border: 0.094rem solid #2b9176;
     background: #b1e9d6;
-  }
-`;
-
-const Radio = styled.input`
-  position: absolute;
-  width: 0.063rem;
-  height: 0.063rem;
-  padding: 0;
-  border: 0;
-  overflow: hidden;
-  margin: -0.063rem;
-  clip-path: inset(50%);
-
-  /* 체크된 상태일 때 스타일 변경 */
-  &: checked + ${RadioWrapper} {
-    font-weight: 550;
-    background: #dffaf1;
-    border-color: #2b9176;
-    color: #353838;
   }
 `;
 
@@ -322,6 +287,7 @@ const ApplicationCommon = ({
               <FileInput htmlFor="file">
                 <img
                   src={upload}
+                  alt='upload'
                   style={{ height: "1.75rem", width: "1.75rem" }}
                 />
                 <input
@@ -340,6 +306,7 @@ const ApplicationCommon = ({
               <DeleteButton onClick={handleDeleteFile}>
                 <img
                   src={close}
+                  alt='close'
                   style={{ height: "1.75rem", width: "1.75rem" }}
                 />
               </DeleteButton>

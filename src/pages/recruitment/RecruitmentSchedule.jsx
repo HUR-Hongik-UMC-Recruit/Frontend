@@ -8,6 +8,7 @@ const RecruitmentSchedule = () => {
   const timelineRef = useRef(null);
 
   useEffect(() => {
+    const currentRef = timelineRef.current;
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -18,13 +19,13 @@ const RecruitmentSchedule = () => {
       { threshold: 0.1 } // 10%가 보일 때 트리거
     );
 
-    if (timelineRef.current) {
-      observer.observe(timelineRef.current);
+    if (currentRef) {
+      observer.observe(currentRef);
     }
 
     return () => {
-      if (timelineRef.current) {
-        observer.unobserve(timelineRef.current);
+      if (currentRef) {
+        observer.unobserve(currentRef);
       }
     };
   }, []);

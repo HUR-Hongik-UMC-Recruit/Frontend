@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import Challenge from "../../components/common/Challenge";
 import HomeActivity from "./HomeActivity";
 import HomeMain from "./HomeMain";
