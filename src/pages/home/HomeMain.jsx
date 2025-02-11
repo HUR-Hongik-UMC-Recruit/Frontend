@@ -142,29 +142,28 @@ const HomeMain = ({ downClick }) => {
     window.scrollTo(0, 0); // 페이지 최상단으로 스크롤
   };
 
-  const text = "Break The Rules!"; // 타이핑할 문구
+  const text = "Break The Rules!";
   const [displayedText, setDisplayedText] = useState(""); // 상태로 표시할 텍스트 관리
+  const [index, setIndex] = useState(0);
   const speed = 80; // 글자 타이핑 속도 (밀리초 단위)
 
   useEffect(() => {
-    let index = 0;
-
-    const typeWriter = () => {
+    const typeWriter = setInterval(() => {
       if (index < text.length) {
-        setDisplayedText((prev) => prev + text.charAt(index));
-        index++;
-        setTimeout(typeWriter, speed);
+        setDisplayedText((prev) => prev + text[index]);
+        setIndex((prevIndex) => prevIndex + 1);
+      } else {
+        clearInterval(typeWriter);
       }
-    };
+    }, speed);
 
-    typeWriter(); // 타이핑 함수 호출
-    console.log("original text: ", text);
+    console.log("text: ", text);
+    console.log("Distext: ", displayedText);
 
     return () => {
-      // 컴포넌트 언마운트 시 클린업
-      index = text.length; // 타이핑 중지
+      clearInterval(typeWriter);
     };
-  }, [text]); // text가 변경될 때마다 effect 실행
+  }); // text가 변경될 때마다 effect 실행
 
   return (
     <BTRContainer>
@@ -177,10 +176,10 @@ const HomeMain = ({ downClick }) => {
       </BTRWrapper>
       <RecruitButton onClick={toRecruit}>
         UMC 8기 지원하기
-        <img src={arrowRight} alt='arrowright'/>
+        <img src={arrowRight} alt="arrowright" />
       </RecruitButton>
       <NextButton onClick={downClick}>
-        <img src={arrowDown} alt='arrowdown'/>
+        <img src={arrowDown} alt="arrowdown" />
       </NextButton>
     </BTRContainer>
   );
