@@ -48,7 +48,7 @@ const AllApplicantsPage = () => {
 
   useEffect(() => {
     fetchApplicants();
-  });
+  }, []);
 
   const handleFilterChange = (filterValues) => {
     // 필터 검색을 처리할 함수
