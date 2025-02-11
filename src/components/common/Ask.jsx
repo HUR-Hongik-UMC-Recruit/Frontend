@@ -34,8 +34,8 @@ const KakaoWrapper = styled.div`
 `;
 
 const KakaoImg = styled.img`
-  width: 12.51513rem
-  height: 12.51513rem
+  width: 12.51513rem;
+  height: 12.51513rem;
 `;
 
 const KakaoText = styled.a`

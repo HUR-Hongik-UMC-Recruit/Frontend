@@ -77,7 +77,7 @@ const ChallengeButton = styled.button`
   line-height: 135%; /* 1.85625rem */
   letter-spacing: -0.01375rem;
 
-  &: hover {
+  &:hover {
     transform: scale(1.1);
     transition: transform 0.5s ease;
     animation: ${shake} 0.7s;
@@ -104,7 +104,7 @@ const Challenge = () => {
           하세요!
         </ChallengeText>
         <ChallengeButton onClick={toRecruit}>
-          모집 알림 신청하러 가기 <img src={arrowNext} alt='arrownext' />
+          모집 알림 신청하러 가기 <img src={arrowNext} alt="arrownext" />
         </ChallengeButton>
       </ChallengeWrapper>
     </ChallengeContainer>

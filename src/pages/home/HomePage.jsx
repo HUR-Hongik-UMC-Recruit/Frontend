@@ -41,13 +41,13 @@ const HomePage = () => {
 
   return (
     <div style={{ background: "black" }}>
-      <HomeMain downClick={scrollToUMC} />
-      <HomeUMC ref={umcRef} />
-      <HomeService />
-      <HomeCurriculum />
-      <HomeActivity />
-      <HomeUniversity />
-      <Challenge />
+      <HomeMain key="homemain" downClick={scrollToUMC} />
+      <HomeUMC key="homeumc" ref={umcRef} />
+      <HomeService key="homeservice" />
+      <HomeCurriculum key="homecurri" />
+      <HomeActivity key="homeactivity" />
+      <HomeUniversity key="homeuniv" />
+      <Challenge key="challenge" />
     </div>
   );
 };

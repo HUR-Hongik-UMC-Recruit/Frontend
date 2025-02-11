@@ -88,10 +88,10 @@ const OptionList = styled.div`
   top: 100%;
   left: 0;
   width: 100%;
-  height: height: ${(props) => props.height};  // 동적 높이 설정
+  height: ${(props) => props.height}; // 동적 높이 설정
   margin-top: 0.25rem;
-  background: #FCFFFF;
-  border: 0.094rem solid #BCC6C6;
+  background: #fcffff;
+  border: 0.094rem solid #bcc6c6;
   border-radius: 0.75rem;
   padding: 1.125rem;
   box-sizing: border-box;
@@ -112,7 +112,7 @@ const Option = styled.button`
   width: 100%;
   height: 1.875rem;
   font-style: normal;
-  font-weight: "400";
+  font-weight: 400;
   font-size: 1rem;
   line-height: 1.875rem;
   color: ${(props) => (props.isSelected ? "#FFF" : "#353838")};

@@ -117,7 +117,7 @@ const RecruitButton = styled.button`
   line-height: 135%; /* 1.85625rem */
   letter-spacing: -0.01375rem;
 
-  &: hover {
+  &:hover {
     transform: scale(1.1);
     transition: transform 0.5s ease;
     animation: ${shake} 0.7s;
@@ -156,9 +156,6 @@ const HomeMain = ({ downClick }) => {
         clearInterval(typeWriter);
       }
     }, speed);
-
-    console.log("text: ", text);
-    console.log("Distext: ", displayedText);
 
     return () => {
       clearInterval(typeWriter);

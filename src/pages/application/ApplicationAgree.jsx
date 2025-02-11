@@ -44,9 +44,10 @@ const AgreeText = styled.div`
 
 const Link = styled.a`
   color: #2b9176;
-//   text-decoration: none;
-//   &:hover {
+  text-decoration: none;
+  &:hover {
     text-decoration: underline;
+    cursor: pointer;
   }
 `;
 
