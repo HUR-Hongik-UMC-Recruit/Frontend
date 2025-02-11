@@ -158,6 +158,7 @@ const HomeMain = ({ downClick }) => {
     };
 
     typeWriter(); // 타이핑 함수 호출
+    console.log("original text: ", text);
 
     return () => {
       // 컴포넌트 언마운트 시 클린업
