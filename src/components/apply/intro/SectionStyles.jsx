@@ -149,7 +149,7 @@ export const InfoText = styled.p`
   font-style: normal;
   font-weight: 500;
   line-height: 1.875rem;
-  letter-spacing: 0.009remx;
+  letter-spacing: 0.009rem;
   margin: 0;
   margin-left: 1.25rem;
   white-space: pre-line; // 줄바꿈
