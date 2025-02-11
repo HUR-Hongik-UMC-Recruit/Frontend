@@ -11,5 +11,6 @@ export default createGlobalStyle`
   body {
     font-family: 'Pretendard Variable', sans-serif;
     margin: 0;
+    overflow-x: hidden;
   }
 `;

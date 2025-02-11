@@ -39,7 +39,7 @@ const RecruitAlertEmailPage = () => {
   // 모집알림 이메일 등록한 지원자 조회 api 호출
   useEffect(() => {
     fetchApplicants();
-  });
+  }, []);
 
   const handlePageChange = (pageNumber) => {
     // 페이지 변경

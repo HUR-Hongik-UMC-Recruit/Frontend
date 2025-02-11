@@ -39,7 +39,7 @@ const DocFailEmailPage = () => {
 
   useEffect(() => {
     fetchApplicants();
-  });
+  }, []);
 
   const handlePageChange = (pageNumber) => {
     // 페이지 변경
