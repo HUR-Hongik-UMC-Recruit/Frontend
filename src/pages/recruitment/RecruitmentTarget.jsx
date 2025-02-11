@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import SectionHeader from "../../components/common/SectionHeader";
 import targetDetails from "../../data/recruitment/TargetData";
 import { motion } from "framer-motion";

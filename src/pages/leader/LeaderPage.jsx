@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import leaders from "../../data/leader/LeaderData";
 import LeaderToggle from "../../components/leader/LeaderToggle";
 
 const LeaderContainer = styled.div`

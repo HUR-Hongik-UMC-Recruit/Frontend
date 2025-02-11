@@ -110,7 +110,7 @@ const NotFoundPage = () => {
         </NotFoundWrapper>
         <ToHomeButton onClick={toRecruit}>
           홈으로 이동
-          <img src={ToHome} style={{ width: "1.5rem", height: "1.5rem" }} />
+          <img src={ToHome} alt='tohome' style={{ width: "1.5rem", height: "1.5rem" }} />
         </ToHomeButton>
       </Wrapper>
     </Container>

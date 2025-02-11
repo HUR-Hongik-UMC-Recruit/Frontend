@@ -176,10 +176,10 @@ const HomeMain = ({ downClick }) => {
       </BTRWrapper>
       <RecruitButton onClick={toRecruit}>
         UMC 8기 지원하기
-        <img src={arrowRight} />
+        <img src={arrowRight} alt='arrowright'/>
       </RecruitButton>
       <NextButton onClick={downClick}>
-        <img src={arrowDown} />
+        <img src={arrowDown} alt='arrowdown'/>
       </NextButton>
     </BTRContainer>
   );

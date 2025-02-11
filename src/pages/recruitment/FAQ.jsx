@@ -1,5 +1,5 @@
-import React, { useEffect, useRef, useState } from "react";
-import styled, { keyframes } from "styled-components";
+import React from "react";
+import styled from "styled-components";
 import SectionHeader from "../../components/common/SectionHeader";
 import FAQItem from "../../components/recruitment/FAQItem";
 import faqData from "../../data/recruitment/FAQData";
@@ -23,8 +23,7 @@ const FAQ = () => {
                 y: { duration: 1 },
               }}
             >
-              <FAQItem key={index} {...faq} /> // 항목마다 FAQItem 컴포넌트 생성
-              (spread 연산자로 객체 모든 속성 props로 전달하기)
+              <FAQItem key={index} {...faq} />
             </FAQItemWrapper>
           ))}
         </FAQListContainer>
