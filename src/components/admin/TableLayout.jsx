@@ -38,7 +38,6 @@ const TableLayout = ({
 export default TableLayout;
 
 const Container = styled.div`
-  //width: 66rem; // 실제 컨텐츠 영역
   padding: 0 2.25rem; // 좌우 패딩딩
   margin-left: 19.5rem; // 왼쪽 배너 width만큼 margin
   display: flex;
@@ -64,7 +63,7 @@ const Title = styled.h1`
   font-weight: 700;
   line-height: 2.363rem;
   color: #1d201e;
-  margin: 0;
+  margin-top: 3rem;
 `;
 
 const Subtitle = styled.h2`
