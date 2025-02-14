@@ -5,7 +5,7 @@ import close from "../../assets/icons/FileClose.svg";
 
 const CommonContainer = styled.div`
   width: 100%;
-  margin-top: 5rem;
+  margin-top: 3.75rem;
 `;
 
 const CommonTitle = styled.div`

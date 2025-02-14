@@ -2,10 +2,10 @@ import styled from "styled-components";
 
 export const Section = styled.section`
   width: 100%;
-  margin-top: 4rem;
 `;
 
-export const ContentWrapper = styled.div``;
+export const ContentWrapper = styled.div`
+`;
 
 export const SectionTitle = styled.h2`
   color: #2b9176;
@@ -14,6 +14,7 @@ export const SectionTitle = styled.h2`
   font-style: normal;
   font-weight: 575;
   line-height: 1.875rem; /* 125% */
+  margin-top: 7rem;
 `;
 
 export const Divider = styled.div`
