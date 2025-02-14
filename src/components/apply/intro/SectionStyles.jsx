@@ -88,6 +88,10 @@ export const DisabledButton = styled(Button)`
   background: #d1dadb;
   border-color: #a2abab;
   cursor: not-allowed; // 커서 막음
+
+  &:hover {
+    background: #d1dadb;
+  }
 `;
 
 export const Grid = styled.div`
