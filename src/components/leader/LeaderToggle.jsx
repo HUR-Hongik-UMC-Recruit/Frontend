@@ -53,7 +53,9 @@ const LeaderListWrapper = styled.div`
   flex-direction: column;
 `;
 
-const LedaerTitle = styled.div`
+const LeaderTitle = styled.div`
+  text-align: end;
+
   color: #a2abab;
   font-family: "Pretendard Variable";
   font-size: 1.75rem;
@@ -67,11 +69,12 @@ const LeaderList = styled.div`
   display: flex;
   justify-content: flex-end;
   gap: 1rem;
+  flex-wrap: wrap;
 `;
 
 const LeaderToggle = ({ generation }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [leaders, setLeaders] = useState([]);
+  const [leaders, setLeaders] = useState({ presidents: [], partLeaders: [] });
 
   // API 연결
   const apiUrl = process.env.REACT_APP_API_URL;
@@ -81,22 +84,21 @@ const LeaderToggle = ({ generation }) => {
       const response = await axios.get(
         `${apiUrl}/leaders?generation=${generation}`
       );
-      setLeaders(response.data);
+      setLeaders(response.data.result);
       console.log("운영진 get 서버 응답: ", response.data);
     } catch (e) {
       console.log("운영진 get 에러 발생: ", e);
     }
   };
 
-  useEffect(() => {
-    if (isOpen) {
-      getLeaders();
-    }
-  }, [isOpen]);
-
   return (
     <ToggleContainer>
-      <ToggleHeader onClick={() => setIsOpen(!isOpen)}>
+      <ToggleHeader
+        onClick={() => {
+          setIsOpen(!isOpen);
+          getLeaders();
+        }}
+      >
         <ToggleTitle>{generation}</ToggleTitle>
         <ToggleIcon $isOpen={isOpen}>
           <img src={DownIcon} alt="toggle" />
@@ -105,7 +107,7 @@ const LeaderToggle = ({ generation }) => {
       {isOpen && (
         <LeaderListContainer>
           <LeaderListWrapper>
-            <LedaerTitle>회장단</LedaerTitle>
+            <LeaderTitle>회장단</LeaderTitle>
             <LeaderList>
               {leaders.presidents.map((leader, i) => (
                 <LeaderCard key={i} {...leader} />
@@ -114,36 +116,9 @@ const LeaderToggle = ({ generation }) => {
           </LeaderListWrapper>
 
           <LeaderListWrapper>
-            <LedaerTitle>서버 파트장</LedaerTitle>
+            <LeaderTitle>파트장</LeaderTitle>
             <LeaderList>
-              {leaders.parts.server.map((leader, i) => (
-                <LeaderCard key={i} {...leader} />
-              ))}
-            </LeaderList>
-          </LeaderListWrapper>
-
-          <LeaderListWrapper>
-            <LedaerTitle>웹 파트장</LedaerTitle>
-            <LeaderList>
-              {leaders.parts.web.map((leader, i) => (
-                <LeaderCard key={i} {...leader} />
-              ))}
-            </LeaderList>
-          </LeaderListWrapper>
-
-          <LeaderListWrapper>
-            <LedaerTitle>모바일 파트장</LedaerTitle>
-            <LeaderList>
-              {leaders.parts.mobile.map((leader, i) => (
-                <LeaderCard key={i} {...leader} />
-              ))}
-            </LeaderList>
-          </LeaderListWrapper>
-
-          <LeaderListWrapper>
-            <LedaerTitle>PM / Design 파트장</LedaerTitle>
-            <LeaderList>
-              {leaders.parts.plans.map((leader, i) => (
+              {leaders.partLeaders.map((leader, i) => (
                 <LeaderCard key={i} {...leader} />
               ))}
             </LeaderList>
