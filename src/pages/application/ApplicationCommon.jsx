@@ -84,6 +84,16 @@ const AnswerBig = styled.textarea`
   &::placeholder {
     color: #818989;
   }
+
+  &:hover {
+    border: 0.094rem solid #2b9176;
+  }
+
+  &:focus {
+    border: 0.094rem solid #2b9176;
+    outline: none;
+    caret-color: #2b9176;
+  }
 `;
 
 const Guide = styled.div`
@@ -111,6 +121,16 @@ const AnswerSmall = styled.textarea`
 
   &::placeholder {
     color: #818989;
+  }
+
+  &:hover {
+    border: 0.094rem solid #2b9176;
+  }
+
+  &:focus {
+    border: 0.094rem solid #2b9176;
+    outline: none;
+    caret-color: #2b9176;
   }
 `;
 
@@ -287,7 +307,7 @@ const ApplicationCommon = ({
               <FileInput htmlFor="file">
                 <img
                   src={upload}
-                  alt='upload'
+                  alt="upload"
                   style={{ height: "1.75rem", width: "1.75rem" }}
                 />
                 <input
@@ -306,7 +326,7 @@ const ApplicationCommon = ({
               <DeleteButton onClick={handleDeleteFile}>
                 <img
                   src={close}
-                  alt='close'
+                  alt="close"
                   style={{ height: "1.75rem", width: "1.75rem" }}
                 />
               </DeleteButton>
