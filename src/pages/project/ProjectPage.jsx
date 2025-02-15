@@ -243,29 +243,29 @@ const ProjectPage = () => {
 export default ProjectPage;
 
 const ModalContent = styled(motion.div)`
-  width: 1100px;
-  height: 855px;
-  border-radius: 16px;
-  padding: 64px 100px 64px 125px;
+  width: 68.75rem;
+  height: 53.438rem;
+  border-radius: 1rem;
+  padding: 4rem 6.25rem 4rem 7.813rem;
   background: black;
-  border: 1px solid #353838;
-  box-shadow: 0px 0px 60px 0px #d1dadb66;
+  border: 0.063rem solid #353838;
+  box-shadow: 0rem 0rem 3.75rem 0rem #d1dadb66;
   display: flex;
   flex-direction: column;
   align-items: center;
 `;
 
 const ContentWrapper = styled.div`
-  width: 724px;
-  height: 727px;
+  width: 45.25rem;
+  height: 45.438rem;
   display: flex;
   flex-direction: column;
 `;
 
 const ModalHeader = styled.div`
-  width: 724px;
-  height: 59px;
-  margin-bottom: 48px;
+  width: 45.25rem;
+  height: 3.688rem;
+  margin-bottom: 3rem;
 `;
 
 const HeaderContent = styled.div`
@@ -273,30 +273,30 @@ const HeaderContent = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 4px;
+  margin-bottom: 0.25rem;
 `;
 
 const TitleSection = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 0.25rem;
 `;
 
 const ModalProjectName = styled.h2`
   font-family: Pretendard Variable;
   font-weight: 600;
-  font-size: 22px;
-  line-height: 29.7px;
+  font-size: 1.375rem;
+  line-height: 1.856rem;
   letter-spacing: -1%;
   color: #ffffff;
-  margin-bottom: 4px;
+  margin-bottom: 0.25rem;
 `;
 
 const ModalPlatform = styled.div`
   font-family: Pretendard Variable;
   font-weight: 600;
-  font-size: 17px;
-  line-height: 24.65px;
+  font-size: 1.063rem;
+  line-height: 1.541rem;
   letter-spacing: 0%;
   color: #818989;
 `;
@@ -310,16 +310,16 @@ const ModalGeneration = styled.div`
   align-items: center;
   justify-content: center;
   margin-left: auto;
-  width: 45px;
-  height: 32px;
-  border-radius: 50px;
+  width: 2.813rem;
+  height: 2rem;
+  border-radius: 3.125rem;
   background-color: #353838;
   margin-top: 0;
 
   font-family: Pretendard Variable;
   font-weight: 600;
-  font-size: 14px;
-  line-height: 20.3px;
+  font-size: 0.875rem;
+  line-height: 1.269rem;
   letter-spacing: 1%;
   color: #a2abab;
 `;
@@ -332,15 +332,15 @@ const Part = styled.div`
   margin-bottom: 1.5rem;
   display: flex;
   flex-direction: row;
-  gap: 14px;
+  gap: 0.875rem;
   flex-wrap: wrap;
 `;
 
 const MemberList = styled.div`
   font-family: Pretendard Variable;
   font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   letter-spacing: 0%;
   color: #bcc6c6;
   display: flex;
@@ -354,7 +354,7 @@ const TeamMember = styled.div`
 const TeamTitle = styled.h2`
   color: var(--Gray-50, #fcffff);
   font-family: "Pretendard Variable";
-  font-size: 18px;
+  font-size: 1.125rem;
   font-style: normal;
   font-weight: 600;
   line-height: 145%;
@@ -363,42 +363,42 @@ const TeamTitle = styled.h2`
 const PartTitle = styled.div`
   font-family: Pretendard Variable;
   font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1rem;
+  line-height: 1.5rem;
   letter-spacing: 0%;
   color: #818989;
-  margin-right: 60px;
-  width: 90px;
+  margin-right: 3.75rem;
+  width: 5.625rem;
 `;
 
 const VerticalBar = styled.div`
-  width: 2px;
-  height: 14px;
+  width: 0.125rem;
+  height: 0.875rem;
   background-color: #5c6161;
-  margin-left: 20px;
+  margin-left: 1.25rem;
 `;
 
 const ModalImg = styled.img`
-  width: 724px;
-  height: 408px;
-  border-radius: 5px;
+  width: 45.25rem;
+  height: 25.5rem;
+  border-radius: 0.313rem;
   background-color: #ffffff;
-  margin-bottom: 30px;
+  margin-bottom: 1.875rem;
 `;
 
 const LinkButton = styled.button`
   position: absolute;
-  right: 16px;
-  bottom: 11px;
+  right: 1rem;
+  bottom: 0.688rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 12px 24px;
-  width: 165px;
-  height: 44px;
+  padding: 0.75rem 1.5rem;
+  width: 10.313rem;
+  height: 2.75rem;
   background: #353838;
-  border: 1px solid #5c6161;
-  border-radius: 50px;
+  border: 0.063rem solid #5c6161;
+  border-radius: 3.125rem;
   cursor: pointer;
 
   &:hover {
@@ -408,7 +408,7 @@ const LinkButton = styled.button`
 
 const ImgContainer = styled.div`
   position: relative;
-  width: 724px;
-  height: 408px;
-  margin-bottom: 30px;
+  width: 45.25rem;
+  height: 25.5rem;
+  margin-bottom: 1.875rem;
 `;
