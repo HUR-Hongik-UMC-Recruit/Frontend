@@ -1,9 +1,8 @@
 import styled from "styled-components";
-import Projects from "../../data/project/ProjectsData";
-import ProjectData from "../../data/project/ProjectData";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Modal from "../../components/application/Modal";
+import PlatfromConverter from "../../data/project/PlatformConverter";
 
 const ProjectContainer = styled.div`
   background: black;
@@ -111,7 +110,7 @@ const ProjectPage = () => {
   const getProjects = async () => {
     try {
       const response = await axios.get(`${apiUrl}/projects`);
-      setProjects(response.data);
+      setProjects(response.data.result);
       console.log("프로젝트 get 요청 응답: ", response.data);
     } catch (e) {
       console.log("프로젝트 get 요청 실패: ", e);
@@ -149,7 +148,9 @@ const ProjectPage = () => {
             <Img src={project.img} />
             <Project>
               <ProjectName>{project.name}</ProjectName>
-              <ProjectPlatform>{project.platform}</ProjectPlatform>
+              <ProjectPlatform>
+                {PlatfromConverter[project.platform]}
+              </ProjectPlatform>
             </Project>
             <Description>{project.description}</Description>
           </CardContainer>
