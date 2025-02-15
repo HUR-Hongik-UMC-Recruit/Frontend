@@ -147,20 +147,33 @@ const HomeMain = ({ downClick }) => {
   const [index, setIndex] = useState(0);
   const speed = 80; // 글자 타이핑 속도 (밀리초 단위)
 
-  useEffect(() => {
-    const typeWriter = setInterval(() => {
-      if (index < text.length) {
-        setDisplayedText((prev) => prev + text[index]);
-        setIndex((prevIndex) => prevIndex + 1);
-      } else {
-        clearInterval(typeWriter);
-      }
-    }, speed);
+  const [isTyping, setIsTyping] = useState(false);
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsTyping(true);
+    }, 700);
     return () => {
-      clearInterval(typeWriter);
+      clearTimeout(timer);
     };
-  }); // text가 변경될 때마다 effect 실행
+  }, []);
+
+  useEffect(() => {
+    if (isTyping) {
+      const typeWriter = setInterval(() => {
+        if (index < text.length) {
+          setDisplayedText((prev) => prev + text[index]);
+          setIndex((prevIndex) => prevIndex + 1);
+        } else {
+          clearInterval(typeWriter);
+        }
+      }, speed);
+
+      return () => {
+        clearInterval(typeWriter);
+      };
+    }
+  });
 
   return (
     <BTRContainer>
