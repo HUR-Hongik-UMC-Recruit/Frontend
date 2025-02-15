@@ -70,7 +70,7 @@ const Title = styled.h1`
   font-weight: 700;
   line-height: 2.363rem;
   color: #1d201e;
-  margin: 0;
+  margin-top: 3rem;
 `;
 
 const Subtitle = styled.h2`
