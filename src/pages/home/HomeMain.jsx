@@ -138,7 +138,7 @@ const HomeMain = ({ downClick }) => {
     // window.location.href = "/recruitment";
 
     // 스무스하게 넘어감
-    navigate("/recruitment");
+    navigate("/apply");
     window.scrollTo(0, 0); // 페이지 최상단으로 스크롤
   };
 
