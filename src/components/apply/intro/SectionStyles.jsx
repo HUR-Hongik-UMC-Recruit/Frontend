@@ -166,7 +166,7 @@ export const InfoText = styled.p`
   line-height: 1.875rem;
   letter-spacing: 0.009rem;
   margin: 0;
-  margin-left: 1.25rem;
+  margin-left: 0.3rem;
   white-space: pre-line; // 줄바꿈
 `;
 
