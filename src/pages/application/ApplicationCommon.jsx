@@ -214,7 +214,7 @@ const ApplicationCommon = ({
       const maxSize = 10 * 1024 * 1024;
       const fileSize = e.target.files[0]?.size;
       if (fileSize > maxSize) {
-        alert("첨부 파일 사이즈는 5MB 이내로 등록 가능합니다.");
+        alert("첨부 파일 사이즈는 10MB 이내로 등록 가능합니다.");
         return;
       }
       setFile(e.target.files[0]);
@@ -240,12 +240,12 @@ const ApplicationCommon = ({
         <AnswerWrapper>
           <AnswerBig
             type="text"
-            placeholder="500자 이하로 얘기해주세요"
+            placeholder="700자 이하로 얘기해주세요"
             onChange={(e) => handleAnswerChange(0, e)}
-            maxLength={500}
+            maxLength={700}
             ref={refs[0]}
           />
-          <CountText>{charCounts[0] || 0}/500자</CountText>
+          <CountText>{charCounts[0] || 0}/700자</CountText>
         </AnswerWrapper>
       </QuestionWrapper>
 
@@ -264,7 +264,7 @@ const ApplicationCommon = ({
       </QuestionWrapper>
 
       <QuestionWrapper>
-        <Question>3. UMC에 임하는 각오를 서술해주세요.</Question>
+        <Question>3. 어려움을 겪고 극복해낸 과정을 사례와 함께 서술해주세요. 기술적인 어려움이 아니더라도 좋습니다!</Question>
         <AnswerWrapper>
           <AnswerBig
             type="text"
@@ -279,24 +279,7 @@ const ApplicationCommon = ({
 
       <QuestionWrapper>
         <Question>
-          4. UMC는 학기 중에 배운 것을 바탕으로 방학 동안 팀을 구성해 앱 런칭을
-          진행합니다. 실제로 어떤 서비스를 개발하고 싶은지 서술해주세요.
-        </Question>
-        <AnswerWrapper>
-          <AnswerBig
-            type="text"
-            placeholder="500자 이하로 얘기해주세요"
-            onChange={(e) => handleAnswerChange(3, e)}
-            maxLength={500}
-            ref={refs[3]}
-          />
-          <CountText>{charCounts[3] || 0}/500자</CountText>
-        </AnswerWrapper>
-      </QuestionWrapper>
-
-      <QuestionWrapper>
-        <Question>
-          5. (포트폴리오 첨부) 협업하면서 어려웠던 점과 협업을 어떻게
+          4. (포트폴리오 첨부) 협업하면서 어려웠던 점과 협업을 어떻게
           진행했는지, 해당 프로젝트를 진행한 이유와 프로젝트 내 나의 파트 등을
           자세하게 서술해주세요. 디자인 혹은 협업 경험이 없는 경우 자기소개서를
           제출하셔도 괜찮습니다.
@@ -341,12 +324,12 @@ const ApplicationCommon = ({
       </QuestionWrapper>
 
       <QuestionWrapper>
-        <Question>6. 본인의 경험을 드러낼수 있는 링크를 첨부해주세요.</Question>
+        <Question>5. 본인의 경험을 드러낼수 있는 링크를 첨부해주세요.</Question>
         <AnswerSmall
           type="text"
           placeholder="예) 깃허브, 노션, 기술블로그"
-          onChange={(e) => handleAnswerChange(4, e)}
-          ref={refs[4]}
+          onChange={(e) => handleAnswerChange(3, e)}
+          ref={refs[3]}
         />
       </QuestionWrapper>
     </CommonContainer>
