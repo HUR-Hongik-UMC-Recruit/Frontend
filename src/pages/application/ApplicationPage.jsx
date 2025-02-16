@@ -264,7 +264,9 @@ const ApplicationPage = () => {
       questionId === 1 ||
       questionId === 2 ||
       questionId === 3 ||
-      questionId === 5
+      questionId === 5 ||
+      questionId === 6 ||
+      questionId === 7
     ) {
       setCharCounts((prev) => ({
         ...prev,
