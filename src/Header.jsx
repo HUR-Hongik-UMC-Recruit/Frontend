@@ -135,6 +135,9 @@ const Header = () => {
         </HomeWrapper>
         <MenuWrapper>
           <MenuListWrapper>
+            <MenuList href="/recruiteInfo" $isApplyPage={isApplyPage}>
+              지원안내
+            </MenuList>
             <MenuList href="/project" $isApplyPage={isApplyPage}>
               프로젝트
             </MenuList>
