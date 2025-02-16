@@ -190,7 +190,7 @@ const ApplicationPart = ({
   const handlePartChange = (e) => {
     setSelectPart(e.target.value);
     updateApplicantDTO("part", APIConverter[e.target.value]);
-    handleAnswerChange(5, e);
+    handleAnswerChange(4, e);
   };
 
   return (
@@ -209,7 +209,7 @@ const ApplicationPart = ({
                 name="part"
                 value={part}
                 onChange={handlePartChange}
-                ref={refs[5]}
+                ref={refs[4]}
               />
               <RadioWrapper checked={idx === selectPart} key={part}>
                 {part}
@@ -225,11 +225,11 @@ const ApplicationPart = ({
           <AnswerBig
             type="text"
             placeholder="500자 이하로 얘기해주세요"
-            onChange={(e) => handleAnswerChange(6, e)}
-            ref={refs[6]}
+            onChange={(e) => handleAnswerChange(5, e)}
+            ref={refs[5]}
             maxLength={500}
           />
-          <CountText>{charCounts[6] || 0}/500자</CountText>
+          <CountText>{charCounts[5] || 0}/500자</CountText>
         </AnswerWrapper>
       </QuestionWrapper>
 
@@ -240,9 +240,9 @@ const ApplicationPart = ({
           type="text"
           placeholder={partContent[selectPart].example}
           onChange={(e) => {
-            handleAnswerChange(7, e);
+            handleAnswerChange(6, e);
           }}
-          ref={refs[7]}
+          ref={refs[6]}
         />
       </QuestionWrapper>
     </PartContainer>

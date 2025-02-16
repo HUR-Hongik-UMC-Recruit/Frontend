@@ -202,7 +202,7 @@ const ApplicationPage = () => {
     1: 0,
     2: 0,
     3: 0,
-    6: 0,
+    5: 0,
   }); // 글자수 카운트
 
   // applicantDTO, file 상태 관리
@@ -223,6 +223,7 @@ const ApplicationPage = () => {
     discordEmail: "",
     notionEmail: "",
     part: "",
+    leaderPreference: "",
     answers: [],
   });
 
@@ -263,7 +264,7 @@ const ApplicationPage = () => {
       questionId === 1 ||
       questionId === 2 ||
       questionId === 3 ||
-      questionId === 6
+      questionId === 5
     ) {
       setCharCounts((prev) => ({
         ...prev,
@@ -293,6 +294,7 @@ const ApplicationPage = () => {
     { field: "notionEmail", text: "노션 사용 이메일" },
     { field: "umcRoute", text: "UMC를 알게 된 경로" },
     { field: "currentClub", text: "현재 활동 중이거나 활동 예정인 동아리" },
+    { field: "leaderPreference", text: "스터디 리더를 희망하시나요?" },
   ];
   const refs = {
     email: useRef(null), // 이메일도 추가
@@ -310,17 +312,17 @@ const ApplicationPage = () => {
     notionEmail: useRef(null),
     umcRoute: useRef(null),
     currentClub: useRef(null),
+    leaderPreference: useRef(null),
   };
   // 지원서 질문에 대한 답변 모두 채웠는지 검증 위한 필드
   const questionFields = [
     { questionId: 0, text: "공통 질문 1번" },
     { questionId: 1, text: "공통 질문 2번" },
     { questionId: 2, text: "공통 질문 3번" },
-    { questionId: 3, text: "공통 질문 4번" },
-    { questionId: 4, text: "공통 질문 6번" },
-    { questionId: 5, text: "파트별 질문 1번" },
-    { questionId: 6, text: "파트별 질문 2번" },
-    { questionId: 7, text: "파트별 질문 3번" },
+    { questionId: 3, text: "공통 질문 5번" },
+    { questionId: 4, text: "파트별 질문 1번" },
+    { questionId: 5, text: "파트별 질문 2번" },
+    { questionId: 6, text: "파트별 질문 3번" }
   ];
   const questionRefs = useRef(
     questionFields.map(() => React.createRef()) // 각 질문에 대한 ref 생성
@@ -352,7 +354,7 @@ const ApplicationPage = () => {
     // answers 검증
     for (const question of questionFields) {
       // 필수 항목이 아닌 질문은 넘어가기
-      if (question.questionId === 4) {
+      if (question.questionId === 3) {
         continue;
       }
       const answer = applicantDTO.answers.find(
