@@ -58,6 +58,7 @@ const TeamTitle = styled.h2`
   font-size: 20px;
   line-height: 28px;
   letter-spacing: -1%;
+  margin-bottom: 2.125rem;
 `;
 
 const PartTitle = styled.div`
