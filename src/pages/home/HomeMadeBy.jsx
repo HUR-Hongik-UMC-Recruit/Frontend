@@ -117,8 +117,6 @@ const HomeMadeBy = () => {
                       <MemberList key={index}>
                         {member.nickname}
                         <VerticalBar /> {member.name}
-                        {/* 제일 마지막 요소에는 세로바 없음 */}
-                        {index !== ProjectData.team[part].length - 1}
                       </MemberList>
                     ))}
                   </Part>
