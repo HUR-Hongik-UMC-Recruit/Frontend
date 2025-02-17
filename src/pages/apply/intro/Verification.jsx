@@ -49,7 +49,7 @@ const Verification = ({ emailRefs }) => {
       }
     } catch (error) {
       setEmailSentSuccess(false); // 인증 요청 실패
-      console.log(error);
+      console.log(error.response.data.message);
     }
   };
 

@@ -2,7 +2,7 @@ import { useState } from "react";
 import styled from "styled-components";
 import parts from "../../data/common/PartList";
 import APIConverter from "../../data/application/APIConverter";
-import partContent from "../../data/application/PartQuestionData";
+import PartQuestionData from "../../data/application/PartQuestionData";
 
 const PartContainer = styled.div`
   width: 100%;
@@ -185,10 +185,112 @@ const ApplicationPart = ({
 }) => {
   // 파트 선택 여부
   const [selectPart, setSelectPart] = useState("Plan");
+
+  // 시니어/주니어
+  const [seniorityLevel, setSeniorityLevel] = useState("");
+
   const handlePartChange = (e) => {
     setSelectPart(e.target.value);
     updateApplicantDTO("part", APIConverter[e.target.value]);
-    handleAnswerChange(5, e);
+    handleAnswerChange(4, e);
+  };
+
+  const renderQuestion3 = () => {
+    if (selectPart === "Plan") { // plan 트랙일 때 textarea
+      return (
+        <AnswerWrapper>
+          <AnswerBig
+            type="text"
+            placeholder="500자 이하로 작성해주세요"
+            onChange={(e) => handleAnswerChange(6, e)}
+            ref={refs[6]}
+            maxLength={500}
+          />
+          <CountText>{charCounts[6] || 0}/500자</CountText>
+        </AnswerWrapper>
+      );
+    }
+
+    return (
+      <>
+        {PartQuestionData[selectPart].guide3 && ( // 나머지는 guide text가 있으면 보여줌
+          <Guide>{PartQuestionData[selectPart].guide3}</Guide>
+        )}
+        {/*placeholder */}
+        <AnswerSmall
+          type="text"
+          placeholder={PartQuestionData[selectPart].example3}
+          onChange={(e) => handleAnswerChange(6, e)}
+          ref={refs[6]}
+        />
+      </>
+    );
+  };
+
+  const renderQuestion4 = () => {
+    const questionData = PartQuestionData[selectPart];
+
+    if (questionData.type4 === "textarea") {
+      return (
+        <AnswerWrapper>
+          <AnswerBig
+            type="text"
+            placeholder="500자 이하로 작성해주세요"
+            onChange={(e) => handleAnswerChange(7, e)}
+            ref={refs[7]}
+            maxLength={500}
+          />
+          <CountText>{charCounts[7] || 0}/500자</CountText>
+        </AnswerWrapper>
+      );
+    }
+
+    if (questionData.type4 === "radio") {
+      return (
+        <RadioPartWrapper>
+          <RadioLabel>
+            <Radio
+              type="radio"
+              name="seniority"
+              value="시니어"
+              onChange={(e) => {
+                setSeniorityLevel(e.target.value);
+                handleAnswerChange(7, e);
+              }}
+              ref={refs[7]}
+            />
+            <RadioWrapper>시니어</RadioWrapper>
+          </RadioLabel>
+          <RadioLabel>
+            <Radio
+              type="radio"
+              name="seniority"
+              value="주니어"
+              onChange={(e) => {
+                setSeniorityLevel(e.target.value);
+                handleAnswerChange(7, e);
+              }}
+              ref={refs[7]}
+            />
+            <RadioWrapper>주니어</RadioWrapper>
+          </RadioLabel>
+        </RadioPartWrapper>
+      );
+    }
+
+    if (questionData.type4 === "text") {
+      return (
+        <>
+          {questionData.guide4 && <Guide>{questionData.guide4}</Guide>}
+          <AnswerSmall
+            type="text"
+            placeholder={questionData.example4}
+            onChange={(e) => handleAnswerChange(7, e)}
+            ref={refs[7]}
+          />
+        </>
+      );
+    }
   };
 
   return (
@@ -207,7 +309,7 @@ const ApplicationPart = ({
                 name="part"
                 value={part}
                 onChange={handlePartChange}
-                ref={refs[5]}
+                ref={refs[4]}
               />
               <RadioWrapper checked={idx === selectPart} key={part}>
                 {part}
@@ -223,25 +325,22 @@ const ApplicationPart = ({
           <AnswerBig
             type="text"
             placeholder="500자 이하로 얘기해주세요"
-            onChange={(e) => handleAnswerChange(6, e)}
-            ref={refs[6]}
+            onChange={(e) => handleAnswerChange(5, e)}
+            ref={refs[5]}
             maxLength={500}
           />
-          <CountText>{charCounts[6] || 0}/500자</CountText>
+          <CountText>{charCounts[5] || 0}/500자</CountText>
         </AnswerWrapper>
       </QuestionWrapper>
 
       <QuestionWrapper>
-        <Question>3. {partContent[selectPart].question}</Question>
-        <Guide>{partContent[selectPart].guide}</Guide>
-        <AnswerSmall
-          type="text"
-          placeholder={partContent[selectPart].example}
-          onChange={(e) => {
-            handleAnswerChange(7, e);
-          }}
-          ref={refs[7]}
-        />
+        <Question>3. {PartQuestionData[selectPart].question3}</Question>
+        {renderQuestion3()}
+      </QuestionWrapper>
+
+      <QuestionWrapper>
+        <Question>4. {PartQuestionData[selectPart].question4}</Question>
+        {renderQuestion4()}
       </QuestionWrapper>
     </PartContainer>
   );

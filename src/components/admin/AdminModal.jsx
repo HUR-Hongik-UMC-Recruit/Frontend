@@ -15,7 +15,7 @@ const AdminModal = ({ isOpen, closeModal, application }) => {
     <ModalContainer onClick={handleOverlayClick}>
       <ModalContent>
         <CloseBtn onClick={closeModal}>
-          <img src={FileClose} alt='fileclose' />
+          <img src={FileClose} alt="fileclose" />
         </CloseBtn>
         {application && (
           <ApplicationContent>
@@ -116,6 +116,12 @@ const AdminModal = ({ isOpen, closeModal, application }) => {
                   <Label>활동 예정인 동아리 :</Label>
                   <Value>{application.currentClub}</Value>
                 </InfoItem>
+                <InfoItem>
+                  <Label>스터디 리더를 희망하시나요?</Label>
+                  <Value>
+                    {application.leaderPreference === "YES" ? "예" : "아니요"}
+                  </Value>
+                </InfoItem>
               </InfoGrid>
             </Section>
 
@@ -124,7 +130,7 @@ const AdminModal = ({ isOpen, closeModal, application }) => {
             <Section>
               <SectionTitle>공통 질문</SectionTitle>
               {application.answers
-                .filter((answer) => [0, 1, 2, 3, 4].includes(answer.questionId)) // 0번부터 4번까지 공통 질문
+                .filter((answer) => [0, 1, 2, 3].includes(answer.questionId)) // 0번부터 4번까지 공통 질문
                 .map((answer) => (
                   <AnswerItem key={answer.answerId}>
                     <Question>{answer.questionText}</Question>
@@ -138,7 +144,7 @@ const AdminModal = ({ isOpen, closeModal, application }) => {
             <Section>
               <SectionTitle>파트별 질문</SectionTitle>
               {application.answers
-                .filter((answer) => [5, 6, 7].includes(answer.questionId)) // 5번부터 7번까지 파트별 질문
+                .filter((answer) => [4, 5, 6, 7].includes(answer.questionId)) // 5번부터 7번까지 파트별 질문
                 .map((answer) => (
                   <AnswerItem key={answer.answerId}>
                     <Question>{answer.questionText}</Question>
@@ -178,8 +184,8 @@ const ModalContent = styled.div`
   position: relative;
   background-color: white;
   border-radius: 1.25rem;
-  max-width: 67.5rem;
-  height: 80vh;
+  max-width: 80rem;
+  height: 70vh;
   overflow-y: auto;
 `;
 

@@ -184,11 +184,13 @@ const ProjectPage = () => {
                       src={selectedProject.img}
                       style={{ objectFit: "cover" }}
                     />
-                    <LinkButton
-                      onClick={() => handleToLink(selectedProject.link)}
-                    >
-                      <LinkIcon />
-                    </LinkButton>
+                    {selectedProject.link !== "추후작성" && selectedProject.link !== "" && (
+                      <LinkButton
+                        onClick={() => handleToLink(selectedProject.link)}
+                      >
+                        <LinkIcon />
+                      </LinkButton>
+                    )}
                   </ImgContainer>
                   <ModalHeader>
                     <HeaderContent>

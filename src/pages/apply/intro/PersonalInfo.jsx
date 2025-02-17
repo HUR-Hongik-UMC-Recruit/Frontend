@@ -24,16 +24,29 @@ const PersonalInfo = ({ applicantDTO, updateApplicantDTO, refs }) => {
   const [experience, setExperience] = useState("");
 
   // 라디오 버튼 상태 관리
-  const [selectedOption, setSelectedOption] = useState("");
+  const [selectedGender, setSelectedGender] = useState("");
+
+  // 스터디 리더
+  const [selectedLeader, setSelectedLeader] = useState("");
 
   // 라디오 버튼 클릭 핸들러
-  const handleRadioClick = (option) => {
+  const handleGenderClick = (option) => {
     const genderMap = {
       남: "MALE",
       여: "FEMALE",
     };
-    setSelectedOption(option);
+    setSelectedGender(option);
     updateApplicantDTO("gender", genderMap[option]);
+  };
+
+  // 스터디리더 희망 라디오 버튼 핸들러
+  const handleLeaderClick = (option) => {
+    const leaderMap = {
+      예: "YES",
+      아니요: "NO",
+    };
+    setSelectedLeader(option);
+    updateApplicantDTO("leaderPreference", leaderMap[option]); // 필드명은 서버와 협의 필요
   };
 
   return (
@@ -76,15 +89,15 @@ const PersonalInfo = ({ applicantDTO, updateApplicantDTO, refs }) => {
             </Label>
             <RadioGroup ref={refs.gender}>
               <RadioButton
-                $active={selectedOption === "남"}
-                onClick={() => handleRadioClick("남")}
+                $active={selectedGender === "남"}
+                onClick={() => handleGenderClick("남")}
               >
                 남
               </RadioButton>
 
               <RadioButton
-                $active={selectedOption === "여"}
-                onClick={() => handleRadioClick("여")}
+                $active={selectedGender === "여"}
+                onClick={() => handleGenderClick("여")}
               >
                 여
               </RadioButton>
@@ -277,6 +290,35 @@ const PersonalInfo = ({ applicantDTO, updateApplicantDTO, refs }) => {
             onChange={(e) => updateApplicantDTO("currentClub", e.target.value)}
             ref={refs.currentClub}
           />
+        </FormGroup>
+
+        <FormGroup>
+          <Label>스터디 리더를 희망하시나요?</Label>
+          <InfoText>
+            스터디 리더란 매주 진행되는 스터디의 리더를 의미합니다. 선수 지식이
+            있지 않아도 열심히 공부할 열정과 책임감이 있다면 스터디 리더 지원이
+            가능합니다.{"\n"}
+            이후에 스터디 리더 지원을 따로 받을 예정이며, 스터디 리더 확정이
+            아니니 부담가지지 않으셔도 됩니다.
+          </InfoText>
+
+          <Grid>
+            <RadioGroup ref={refs.leaderPreference}>
+              <RadioButton
+                $active={selectedLeader === "예"}
+                onClick={() => handleLeaderClick("예")}
+              >
+                예
+              </RadioButton>
+
+              <RadioButton
+                $active={selectedLeader === "아니요"}
+                onClick={() => handleLeaderClick("아니요")}
+              >
+                아니요
+              </RadioButton>
+            </RadioGroup>
+          </Grid>
         </FormGroup>
       </ContentWrapper>
     </Section>
