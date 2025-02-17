@@ -6,6 +6,7 @@ import HomeCurriculum from "./HomeCurriculum";
 import HomeService from "./HomeService";
 import HomeUMC from "./HomeUMC";
 import HomeUniversity from "./HomeUniversity";
+import HomeMadeBy from "./HomeMadeBy";
 
 const HomePage = () => {
   const umcRef = useRef(null);
@@ -47,6 +48,7 @@ const HomePage = () => {
       <HomeCurriculum key="homecurri" />
       <HomeActivity key="homeactivity" />
       <HomeUniversity key="homeuniv" />
+      <HomeMadeBy key="homemadeby" />
       <Challenge key="challenge" />
     </div>
   );
