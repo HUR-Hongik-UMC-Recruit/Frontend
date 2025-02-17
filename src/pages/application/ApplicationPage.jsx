@@ -224,6 +224,9 @@ const ApplicationPage = () => {
     notionEmail: "",
     part: "",
     leaderPreference: "",
+    firstInterviewDate: false,
+    secondInterviewDate: false,
+    thirdInterviewDate: false,
     answers: [],
   });
 
@@ -297,6 +300,10 @@ const ApplicationPage = () => {
     { field: "umcRoute", text: "UMC를 알게 된 경로" },
     { field: "currentClub", text: "현재 활동 중이거나 활동 예정인 동아리" },
     { field: "leaderPreference", text: "스터디 리더를 희망하시나요?" },
+    {
+      field: "interviewDate",
+      text: "서류 합격 시, 가능한 면접 일정을 모두 선택해주세요.",
+    },
   ];
   const refs = {
     email: useRef(null), // 이메일도 추가
@@ -315,6 +322,7 @@ const ApplicationPage = () => {
     umcRoute: useRef(null),
     currentClub: useRef(null),
     leaderPreference: useRef(null),
+    interviewDate: useRef(null),
   };
   // 지원서 질문에 대한 답변 모두 채웠는지 검증 위한 필드
   const questionFields = [
@@ -344,13 +352,30 @@ const ApplicationPage = () => {
   const validateForm = () => {
     // PersonalInfo 검증
     for (const field of personalInfoFields) {
-      if (
-        !applicantDTO[field.field] ||
-        applicantDTO[field.field].trim() === ""
-      ) {
-        setTitle("모든 항목에 내용을 작성해주세요");
-        scrollToField(refs[field.field]);
-        return `${field.text} 항목에 대한 내용이 누락되었습니다.`;
+      // 면접 일정은 boolean이니까 다르게
+      if (field.field === "interviewDate") {
+        // 선택된 면접 일정 개수 계산
+        const selectedDates = [
+          applicantDTO.firstInterviewDate,
+          applicantDTO.secondInterviewDate,
+          applicantDTO.thirdInterviewDate,
+        ].filter(Boolean).length; // true인 값들의 개수를 셈
+
+        // 1개도 선택하지 않았을 때만
+        if (selectedDates === 0) {
+          setTitle("모든 항목에 내용을 작성해주세요");
+          scrollToField(refs[field.field]);
+          return `${field.text} 항목에 대한 내용이 누락되었습니다.`;
+        }
+      } else {
+        if (
+          !applicantDTO[field.field] ||
+          applicantDTO[field.field].trim() === ""
+        ) {
+          setTitle("모든 항목에 내용을 작성해주세요");
+          scrollToField(refs[field.field]);
+          return `${field.text} 항목에 대한 내용이 누락되었습니다.`;
+        }
       }
     }
 

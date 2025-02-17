@@ -23,11 +23,18 @@ const PersonalInfo = ({ applicantDTO, updateApplicantDTO, refs }) => {
   const [grade, setGrade] = useState("");
   const [experience, setExperience] = useState("");
 
-  // 라디오 버튼 상태 관리
+  // 성별 라디오 버튼 상태 관리
   const [selectedGender, setSelectedGender] = useState("");
 
   // 스터디 리더
   const [selectedLeader, setSelectedLeader] = useState("");
+
+  // 면접 일정
+  const [selectedInterview, setSelectedInterview] = useState({
+    firstInterviewDate: false,
+    secondInterviewDate: false,
+    thirdInterviewDate: false,
+  });
 
   // 라디오 버튼 클릭 핸들러
   const handleGenderClick = (option) => {
@@ -46,7 +53,30 @@ const PersonalInfo = ({ applicantDTO, updateApplicantDTO, refs }) => {
       아니요: "NO",
     };
     setSelectedLeader(option);
-    updateApplicantDTO("leaderPreference", leaderMap[option]); // 필드명은 서버와 협의 필요
+    updateApplicantDTO("leaderPreference", leaderMap[option]);
+  };
+
+  // 면접 일정 라디오 버튼 핸들러
+  const handleInterviewClick = (option) => {
+    console.log("option: ", option);
+    const updatedOptions = {
+      ...selectedInterview,
+      [option]: !selectedInterview[option], // 선택된 날짜의 불리언 값 반대로 업뎃
+    };
+
+    setSelectedInterview(updatedOptions);
+
+    // updateApplicantDTO("firstInterviewDate", updatedOptions.firstInterviewDate);
+    // updateApplicantDTO("secondInterviewDate", updatedOptions.secondInterviewDate);
+    // updateApplicantDTO("thirdInterviewDate", updatedOptions.thirdInterviewDate);
+    console.log("선택된 값: ", updatedOptions);
+    Object.entries(updatedOptions).map(([key, value]) => {
+      console.log(`전송되는 데이터 - key: ${key}, value: ${value}`);
+      updateApplicantDTO(key, value);
+    });
+
+    console.log("선택된 값: ", updatedOptions);
+    console.log("서버로 전송 ", updateApplicantDTO);
   };
 
   return (
@@ -293,7 +323,10 @@ const PersonalInfo = ({ applicantDTO, updateApplicantDTO, refs }) => {
         </FormGroup>
 
         <FormGroup>
-          <Label>스터디 리더를 희망하시나요?</Label>
+          <Label>
+            스터디 리더를 희망하시나요?
+            <RequiredDot />
+          </Label>
           <InfoText>
             스터디 리더란 매주 진행되는 스터디의 리더를 의미합니다. 선수 지식이
             있지 않아도 열심히 공부할 열정과 책임감이 있다면 스터디 리더 지원이
@@ -316,6 +349,40 @@ const PersonalInfo = ({ applicantDTO, updateApplicantDTO, refs }) => {
                 onClick={() => handleLeaderClick("아니요")}
               >
                 아니요
+              </RadioButton>
+            </RadioGroup>
+          </Grid>
+        </FormGroup>
+
+        {/* 면접 일정 추가  */}
+
+        <FormGroup>
+          <Label>
+            서류 합격 시, 가능한 면접 일정을 모두 선택해주세요.
+            <RequiredDot />
+          </Label>
+
+          <Grid>
+            <RadioGroup ref={refs.interviewDate}>
+              <RadioButton
+                $active={selectedInterview.firstInterviewDate}
+                onClick={() => handleInterviewClick("firstInterviewDate")}
+              >
+                3월 5일 (수) 18:00 ~ 22:00
+              </RadioButton>
+
+              <RadioButton
+                $active={selectedInterview.secondInterviewDate}
+                onClick={() => handleInterviewClick("secondInterviewDate")}
+              >
+                3월 6일 (목) 18:00 ~ 22:00
+              </RadioButton>
+
+              <RadioButton
+                $active={selectedInterview.thirdInterviewDate}
+                onClick={() => handleInterviewClick("thirdInterviewDate")}
+              >
+                3월 7일 (금) 18:00 ~ 22:00
               </RadioButton>
             </RadioGroup>
           </Grid>
