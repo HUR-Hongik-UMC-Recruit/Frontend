@@ -122,6 +122,23 @@ const AdminModal = ({ isOpen, closeModal, application }) => {
                     {application.leaderPreference === "YES" ? "예" : "아니요"}
                   </Value>
                 </InfoItem>
+                <InfoItem>
+                  <Label>
+                    서류 합격 시, 가능한 면접 일정을 모두 선택해주세요.
+                  </Label>
+                  <Value>
+                    {[
+                      application.firstInterviewDate &&
+                        "3월 5일 (수) 18:00 ~ 22:00",
+                      application.secondInterviewDate &&
+                        "3월 6일 (목) 18:00 ~ 22:00",
+                      application.thirdInterviewDate &&
+                        "3월 7일 (금) 18:00 ~ 22:00",
+                    ]
+                      .filter(Boolean) // false인 값 제외
+                      .join(", ")}
+                  </Value>
+                </InfoItem>
               </InfoGrid>
             </Section>
 
