@@ -209,7 +209,7 @@ const ApplicationPage = () => {
   const [applicantDTO, setApplicantDTO] = useState({
     name: "",
     nickName: "",
-    email: authenticatedEmail,
+    email: "authenticatedEmail",
     phone: "",
     gender: "",
     birth: "",
@@ -324,7 +324,8 @@ const ApplicationPage = () => {
     { questionId: 3, text: "공통 질문 5번" },
     { questionId: 4, text: "파트별 질문 1번" },
     { questionId: 5, text: "파트별 질문 2번" },
-    { questionId: 6, text: "파트별 질문 3번" }
+    { questionId: 6, text: "파트별 질문 3번" },
+    { questionId: 7, text: "파트별 질문 4번" },
   ];
   const questionRefs = useRef(
     questionFields.map(() => React.createRef()) // 각 질문에 대한 ref 생성
