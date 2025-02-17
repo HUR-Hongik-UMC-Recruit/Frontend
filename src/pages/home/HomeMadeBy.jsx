@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { useState } from "react";
 import SectionHeader from "../../components/common/SectionHeader";
 import { motion } from "motion/react";
 
@@ -80,8 +79,6 @@ const VerticalBar = styled.div`
 `;
 
 const HomeMadeBy = () => {
-  //const [selectedProject, setSelectedProject] = useState(null);
-
   const ProjectData = {
     team: {
       pm: [{ nickname: "토리", name: "정기민" }],
@@ -104,10 +101,7 @@ const HomeMadeBy = () => {
   return (
     <PartContainer>
       <PartWrapper>
-        <SectionHeader
-        //   title="파트 소개"
-        //   subtitle="UMC는 7개의 파트로 나누어져 있어요"
-        />
+        <SectionHeader />
         <ContentsWrapper>
           <TeamSection>
             <TeamTitle>MADE BY</TeamTitle>
