@@ -69,7 +69,6 @@ export const Input = styled.input`
   &:focus {
     border: 0.094rem solid #2b9176;
     outline: none;
-    caret-color: #2b9176;
   }
 `;
 

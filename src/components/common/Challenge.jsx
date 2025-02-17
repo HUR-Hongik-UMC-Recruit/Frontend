@@ -92,7 +92,7 @@ const Challenge = () => {
     // window.location.href = "/recruitment";
 
     // 스무스하게 넘어감
-    navigate("/recruitment");
+    navigate("/apply");
     window.scrollTo(0, 0); // 페이지 최상단으로 스크롤
   };
 
@@ -104,7 +104,7 @@ const Challenge = () => {
           하세요!
         </ChallengeText>
         <ChallengeButton onClick={toRecruit}>
-          모집 알림 신청하러 가기 <img src={arrowNext} alt="arrownext" />
+          UMC 8기 지원하기 <img src={arrowNext} alt="arrownext" />
         </ChallengeButton>
       </ChallengeWrapper>
     </ChallengeContainer>
