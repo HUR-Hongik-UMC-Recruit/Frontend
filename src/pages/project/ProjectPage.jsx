@@ -245,8 +245,8 @@ const ProjectPage = () => {
 export default ProjectPage;
 
 const ModalContent = styled(motion.div)`
-  width: 68.75rem;
-  height: 53.438rem;
+  width: 50vw;
+  height: 60vh;
   border-radius: 1rem;
   padding: 4rem 6.25rem 4rem 7.813rem;
   background: black;
@@ -255,11 +255,12 @@ const ModalContent = styled(motion.div)`
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow-y: scroll;
 `;
 
 const ContentWrapper = styled.div`
-  width: 45.25rem;
-  height: 45.438rem;
+  // width: 45.25rem;
+  // height: 45.438rem;
   display: flex;
   flex-direction: column;
 `;

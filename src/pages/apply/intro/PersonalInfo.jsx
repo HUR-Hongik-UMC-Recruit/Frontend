@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Select from "../../../components/apply/intro/Select";
+import styled from "styled-components";
 
 import {
   Section,
@@ -16,6 +17,7 @@ import {
   InfoText,
   FormItem,
 } from "../../../components/apply/intro/SectionStyles";
+import { Radio } from "lucide-react";
 
 const PersonalInfo = ({ applicantDTO, updateApplicantDTO, refs }) => {
   // 재학 상태
@@ -362,30 +364,31 @@ const PersonalInfo = ({ applicantDTO, updateApplicantDTO, refs }) => {
             <RequiredDot />
           </Label>
 
-          <Grid>
+          <StyledGrid>
             <RadioGroup ref={refs.interviewDate}>
-              <RadioButton
+              <StyledRadioButton
+                style={{ width: "100px" }}
                 $active={selectedInterview.firstInterviewDate}
                 onClick={() => handleInterviewClick("firstInterviewDate")}
               >
                 3월 5일 (수) 18:00 ~ 22:00
-              </RadioButton>
+              </StyledRadioButton>
 
-              <RadioButton
+              <StyledRadioButton
                 $active={selectedInterview.secondInterviewDate}
                 onClick={() => handleInterviewClick("secondInterviewDate")}
               >
                 3월 6일 (목) 18:00 ~ 22:00
-              </RadioButton>
+              </StyledRadioButton>
 
-              <RadioButton
+              <StyledRadioButton
                 $active={selectedInterview.thirdInterviewDate}
                 onClick={() => handleInterviewClick("thirdInterviewDate")}
               >
                 3월 7일 (금) 18:00 ~ 22:00
-              </RadioButton>
+              </StyledRadioButton>
             </RadioGroup>
-          </Grid>
+          </StyledGrid>
         </FormGroup>
       </ContentWrapper>
     </Section>
@@ -393,3 +396,11 @@ const PersonalInfo = ({ applicantDTO, updateApplicantDTO, refs }) => {
 };
 
 export default PersonalInfo;
+
+const StyledRadioButton = styled(RadioButton)`
+  max-width: 20rem !important;
+`;
+const StyledGrid = styled(Grid)`
+  display: flex;
+  flex-direction: column;
+`;
