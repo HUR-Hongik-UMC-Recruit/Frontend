@@ -11,7 +11,20 @@ import Dongguk from "../../assets/icons/university/동국대학교.png";
 import Jungang from "../../assets/icons/university/중앙대학교.png";
 import Catholic from "../../assets/icons/university/가톨릭대학교.png";
 import Seoulwomen from "../../assets/icons/university/서울여자대학교.png";
-import Namseoul from "../../assets/icons/university/남서울대학교.png";
+import Gachon from "../../assets/icons/university/가천대학교.png";
+
+import Kwangwoon from "../../assets/icons/university/광운대학교.png";
+import Dongduk from "../../assets/icons/university/동덕여자대학교.png";
+import Seokyeong from "../../assets/icons/university/서경대학교.png";
+
+import Sookmyung from "../../assets/icons/university/숙명여자대학교.png";
+import Inha from "../../assets/icons/university/인하대학교.png";
+import Jeonbuk from "../../assets/icons/university/전북대학교.png";
+import Hufs from "../../assets/icons/university/한국외국어대학교.png";
+import Aerospace from "../../assets/icons/university/한국항공대학교.png";
+import Hansung from "../../assets/icons/university/한성대학교.png";
+import Erica from "../../assets/icons/university/한양대학교에리카.png";
+
 
 const UniversityContainer = styled.div`
   width: 100%;
@@ -112,7 +125,6 @@ const HomeUniversity = () => {
     Soongsil,
     Sangmyung,
     Catholic,
-    Namseoul,
     Sungshin,
     Dongguk,
     Jungang,
@@ -120,18 +132,17 @@ const HomeUniversity = () => {
   ];
 
   const down = [
-    Hongik,
-    Yonsei,
-    Ihwa,
-    Duksung,
-    Soongsil,
-    Sangmyung,
-    Catholic,
-    Namseoul,
-    Sungshin,
-    Dongguk,
-    Jungang,
-    Seoulwomen,
+    Gachon,
+    Kwangwoon,
+    Dongduk,
+    Seokyeong,
+    Sookmyung,
+    Inha,
+    Jeonbuk,
+    Hufs,
+    Aerospace,
+    Hansung,
+    Erica,
   ];
 
   return (
