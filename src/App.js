@@ -3,11 +3,14 @@ import GlobalStyle from "./GlobalStyles";
 import { BrowserRouter as Router } from "react-router-dom";
 import Routing from "./pages/Routing";
 import DeviceDetect from "./components/DeviceDetect";
-import { isMobile } from 'react-device-detect';
+import { isMobile, isTablet } from 'react-device-detect';
 
 function App() {
+
+  const isMobileOrTablet = isMobile || isTablet;
+
   return (
-    isMobile ? (
+    isMobileOrTablet ? (
       <DeviceDetect />
     ) : (
       <Router>
