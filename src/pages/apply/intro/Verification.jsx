@@ -61,7 +61,7 @@ const Verification = ({ emailRefs }) => {
     try {
       const response = await axios.post(`${apiUrl}/applicant/email/verify`, {
         email,
-        vCode: verificationCode,
+        verificationCode: verificationCode,
       });
 
       console.log("인증 완료 응답: ", response);
