@@ -178,10 +178,42 @@ const AdminModal = ({ isOpen, closeModal, application }) => {
             <Section>
               <SectionTitle>파트별 질문</SectionTitle>
               {application.answers
-                .filter((answer) => [4, 5, 6, 7].includes(answer.questionId)) // 5번부터 7번까지 파트별 질문
+                .filter((answer) => [4, 5, 6, 7].includes(answer.questionId))
                 .map((answer) => (
                   <AnswerItem key={answer.answerId}>
-                    <Question>{answer.questionText}</Question>
+                    <Question>
+                      {answer.questionId === 6 ? (
+                        <>
+                          3.{" "}
+                          {application.part === "PM" &&
+                            "UMC에서는 방학에 팀을 구성해 앱 런칭을 진행합니다. 개발하고 싶은 서비스를 구체적으로 서술해주세요."}
+                          {application.part === "DESIGN" &&
+                            "디자인 경험 유무와 '다룰 수 있는 툴 - 해당 툴에 대한 숙련도'를 쉼표로 구분하여 나열해 주세요."}
+                          {(application.part === "SPRING" ||
+                            application.part === "NODE" ||
+                            application.part === "IOS" ||
+                            application.part === "ANDROID" ||
+                            application.part === "WEB") &&
+                            "개발 경험 유무와 '개발 경험이 있는 언어 - 해당 언어에 대한 숙련도'를 쉼표로 구분하여 나열해 주세요."}
+                        </>
+                      ) : answer.questionId === 7 ? (
+                        <>
+                          4.{" "}
+                          {application.part === "PM" &&
+                            "희망 기획 플랫폼을 선택해주세요."}
+                          {application.part === "DESIGN" &&
+                            "사용하면서 불편함을 느꼈던 웹 또는 앱 서비스를 하나 선택해 문제점을 분석하고, 본인이 개선한다면 어떻게 디자인할지 구체적으로 서술해 주세요."}
+                          {(application.part === "SPRING" ||
+                            application.part === "NODE" ||
+                            application.part === "IOS" ||
+                            application.part === "ANDROID" ||
+                            application.part === "WEB") &&
+                            "시니어/주니어를 선택해주세요."}
+                        </>
+                      ) : (
+                        answer.questionText
+                      )}
+                    </Question>
                     <Answer>{answer.answerText}</Answer>
                   </AnswerItem>
                 ))}
@@ -304,6 +336,6 @@ const Answer = styled.div`
   line-height: 1.875rem;
   color: #000000;
   white-space: pre-wrap;
-  word-break: break-all; // 추가
-  word-wrap: break-word; // 추가
+  word-break: break-all;
+  word-wrap: break-word;
 `;
