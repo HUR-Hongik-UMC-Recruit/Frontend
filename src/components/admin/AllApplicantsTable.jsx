@@ -15,7 +15,10 @@ const AllApplicantsTable = ({ items }) => {
   // 특정 지원자의 지원서 조회
   const handleViewApplication = async (applicantId) => {
     try {
-      const response = await axios.get(`${apiUrl}/admin/applicant/${applicantId}`);
+      const response = await axios.get(
+        `${apiUrl}/admin/applicant/${applicantId}`,
+        { withCredentials: true }
+      );
       if (response.data.isSuccess) {
         console.log("지원서: ", response.data.result);
         setApplication(response.data.result);
@@ -37,12 +40,17 @@ const AllApplicantsTable = ({ items }) => {
   const updateDocPassStatus = async (applicantId, value) => {
     try {
       const response = await axios.patch(
-        `${apiUrl}/admin/applicant/${applicantId}/docPassStatus?docPassStatus=${
-          value === "합격"
-        }`
+        `${apiUrl}/admin/applicant/${applicantId}/docPassStatus`,
+        null, // body 데이터 없음
+        {
+          params: {
+            docPassStatus: value === "합격",
+          },
+          withCredentials: true,
+        }
       );
       if (response.data.isSuccess) {
-        window.location.reload(); // 성공 시 페이지 새로고침
+        window.location.reload();
       }
     } catch (error) {
       console.error("서류 합불 상태 업데이트 에러", error);
@@ -56,18 +64,23 @@ const AllApplicantsTable = ({ items }) => {
   const updateFinalPassStatus = async (applicantId, value) => {
     try {
       const response = await axios.patch(
-        `${apiUrl}/admin/applicant/${applicantId}/finalPassStatus?finalPassStatus=${
-          value === "합격"
-        }`
+        `${apiUrl}/admin/applicant/${applicantId}/finalPassStatus`,
+        null,
+        {
+          params: {
+            finalPassStatus: value === "합격",
+          },
+          withCredentials: true,
+        }
       );
       if (response.data.isSuccess) {
-        window.location.reload(); // 성공 시 페이지 새로고침
+        window.location.reload();
       }
     } catch (error) {
       console.error("최종 합불 상태 업데이트 에러", error);
       console.log("applicantId ", applicantId);
       alert(
-        "서류 합불 상태 업데이트 중 오류가 발생했습니다. 다시 시도해주세요."
+        "최종 합불 상태 업데이트 중 오류가 발생했습니다. 다시 시도해주세요."
       );
     }
   };
@@ -114,7 +127,11 @@ const AllApplicantsTable = ({ items }) => {
         </TableRow>
       ))}
 
-      <AdminModal isOpen={isOpen} closeModal={closeModal} application={application}/>
+      <AdminModal
+        isOpen={isOpen}
+        closeModal={closeModal}
+        application={application}
+      />
     </>
   );
 };

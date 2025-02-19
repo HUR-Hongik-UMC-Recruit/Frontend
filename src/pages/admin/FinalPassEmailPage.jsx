@@ -20,7 +20,9 @@ const FinalPassEmailPage = () => {
   // 합격자 조회 api 호출
   const fetchApplicants = async () => {
     try {
-      const response = await axios.get(`${apiUrl}/admin/finalPassResult`);
+      const response = await axios.get(`${apiUrl}/admin/finalPassResult`, {
+        withCredentials: true,
+      });
       if (response.data.isSuccess) {
         setApplicants(response.data.result.resultApplicants);
         setTotalItemsCount(response.data.result.resultApplicants.length); // 받아온 전체 데이터 개수

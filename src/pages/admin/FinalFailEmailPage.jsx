@@ -21,7 +21,9 @@ const FinalFailEmailPage = () => {
 
   const fetchApplicants = async () => {
     try {
-      const response = await axios.get(`${apiUrl}/admin/finalFailResult`);
+      const response = await axios.get(`${apiUrl}/admin/finalFailResult`, {
+        withCredentials: true,
+      });
       if (response.data.isSuccess) {
         setApplicants(response.data.result.resultApplicants);
         setTotalItemsCount(response.data.result.resultApplicants.length); // 받아온 전체 데이터 개수

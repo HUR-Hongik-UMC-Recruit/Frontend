@@ -18,20 +18,23 @@ const AdminLoginPage = () => {
     const formData = new FormData();
     formData.append("username", id);
     formData.append("password", password);
-    // 로그인 로직
+    
     try {
-      const response = await axios.post(`${apiUrl}/login`, formData);
+      const response = await axios.post(`${apiUrl}/login`, formData, {
+        withCredentials: true
+      });
 
-      console.log("로그인 성공:", response.data);
-      alert("로그인 성공!");
-
-      login();
-      // 로그인 성공 후 원래 위치로 리디렉션 (기본값은 "/admin")
-      const redirectPath = location.state?.from?.pathname || "/admin";
-      navigate(redirectPath, { replace: true });
+      if (response.data.isSuccess) {
+        console.log("로그인 성공:", response.data);
+        login();
+        const redirectPath = location.state?.from?.pathname || "/admin";
+        navigate(redirectPath, { replace: true });
+      } else {
+        alert(response.data.message);
+      }
     } catch (e) {
       console.log("로그인 실패:", e);
-      alert(e.response.data.message);
+      alert(e.response?.data?.message || "로그인에 실패했습니다");
     }
   };
 
