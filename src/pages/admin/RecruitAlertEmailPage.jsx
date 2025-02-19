@@ -50,7 +50,13 @@ const RecruitAlertEmailPage = () => {
 
   const handleSendEmails = async () => {
     try {
-      const response = await axios.post(`${apiUrl}/admin/notice/send`);
+      const response = await axios.post(
+        `${apiUrl}/admin/notice/send`,
+        {}, // 빈 객체를 body로 전송
+        {
+          withCredentials: true,
+        }
+      );
 
       if (response.data.isSuccess) {
         alert("메일이 성공적으로 전송되었습니다.");
