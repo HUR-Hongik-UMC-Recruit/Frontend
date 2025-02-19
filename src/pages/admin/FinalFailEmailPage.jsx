@@ -34,6 +34,7 @@ const FinalFailEmailPage = () => {
       }
     } catch (error) {
       console.error("지원자 조회 에러", error);
+      alert(error.response.data.message);
     }
   };
 

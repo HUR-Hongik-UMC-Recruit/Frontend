@@ -33,7 +33,7 @@ const FinalPassEmailPage = () => {
       }
     } catch (error) {
       console.error("지원자 조회 에러", error);
-      alert("지원자 조회 중 오류가 발생했습니다. 다시 시도해주세요.");
+      alert(error.response.data.message);
     }
   };
 
