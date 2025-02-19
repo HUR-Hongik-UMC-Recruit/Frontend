@@ -31,7 +31,7 @@ const AdminLoginPage = () => {
       navigate(redirectPath, { replace: true });
     } catch (e) {
       console.log("로그인 실패:", e);
-      alert("로그인에 실패했습니다.");
+      alert(e.response.data.message);
     }
   };
 
