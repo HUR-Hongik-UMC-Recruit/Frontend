@@ -21,7 +21,9 @@ const DocPassEmailPage = () => {
   // 합격자 조회 api 호출
   const fetchApplicants = async () => {
     try {
-      const response = await axios.get(`${apiUrl}/admin/docPassResult`);
+      const response = await axios.get(`${apiUrl}/admin/docPassResult`, {
+        withCredentials: true,
+      });
       if (response.data.isSuccess) {
         setApplicants(response.data.result.resultApplicants); // 서류 합격자 데이터
         setTotalItemsCount(response.data.result.resultApplicants.length);
