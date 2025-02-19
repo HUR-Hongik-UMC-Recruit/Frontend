@@ -53,15 +53,16 @@ const DocPassEmailPage = () => {
   const handleSendEmails = async () => {
     try {
       const response = await axios.post(
-        `${apiUrl}/admin/docPassResult/sendPassEmail`
+        `${apiUrl}/admin/docPassResult/sendPassEmail`,
+        {}, // 빈 객체를 body로 전송
+        {
+          withCredentials: true,
+        }
       );
 
       if (response.data.isSuccess) {
         alert("메일이 성공적으로 전송되었습니다.");
         setIsSent(true);
-        // setApplicants(
-        //  applicants.map((applicant) => ({ ...applicant, docEmailSent: true }))
-        // );
         fetchApplicants(); // 업데이트된 전송 완료 상태 가져오기
       }
     } catch (error) {

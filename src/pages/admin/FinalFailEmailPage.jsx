@@ -53,7 +53,11 @@ const FinalFailEmailPage = () => {
   const handleSendEmails = async () => {
     try {
       const response = await axios.post(
-        `${apiUrl}/admin/finalFailResult/sendFailEmail`
+        `${apiUrl}/admin/finalFailResult/sendFailEmail`,
+        {}, // 빈 객체를 body로 전송
+        {
+          withCredentials: true,
+        }
       );
 
       if (response.data.isSuccess) {

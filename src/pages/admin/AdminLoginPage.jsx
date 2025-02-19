@@ -18,10 +18,10 @@ const AdminLoginPage = () => {
     const formData = new FormData();
     formData.append("username", id);
     formData.append("password", password);
-    
+
     try {
       const response = await axios.post(`${apiUrl}/login`, formData, {
-        withCredentials: true
+        withCredentials: true,
       });
 
       if (response.data.isSuccess) {
