@@ -154,6 +154,23 @@ const AdminModal = ({ isOpen, closeModal, application }) => {
                     <Answer>{answer.answerText}</Answer>
                   </AnswerItem>
                 ))}
+
+              <AnswerItem>
+                <Question>첨부파일</Question>
+                <Answer>
+                  <a
+                    href={application.fileUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      color: "#2B9176",
+                      textDecoration: "underline",
+                    }}
+                  >
+                    {application.fileUrl}
+                  </a>
+                </Answer>
+              </AnswerItem>
             </Section>
 
             <Divider />
@@ -287,4 +304,6 @@ const Answer = styled.div`
   line-height: 1.875rem;
   color: #000000;
   white-space: pre-wrap;
+  word-break: break-all; // 추가
+  word-wrap: break-word; // 추가
 `;
