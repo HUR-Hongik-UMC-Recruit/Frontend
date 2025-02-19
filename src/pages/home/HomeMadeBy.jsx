@@ -82,7 +82,10 @@ const VerticalBar = styled.div`
 const HomeMadeBy = () => {
   const ProjectData = {
     team: {
-      pm: [{ nickname: "토리", name: "정기민" }],
+      pm: [
+        { nickname: "토리", name: "정기민" },
+        { nickname: "오슬로", name: "이승용" },
+      ],
       design: [
         { nickname: "우주", name: "손서우" },
         { nickname: "솔솔", name: "이다솔" },
