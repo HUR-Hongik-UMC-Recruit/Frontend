@@ -33,7 +33,7 @@ const RecruitAlertEmailPage = () => {
       }
     } catch (error) {
       console.error("지원자 조회 에러", error);
-      alert("지원자 조회 중 오류가 발생했습니다. 다시 시도해주세요.");
+      alert(error.response.data.message);
     }
   };
   // 모집알림 이메일 등록한 지원자 조회 api 호출
