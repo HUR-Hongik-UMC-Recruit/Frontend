@@ -35,7 +35,11 @@ const DocFailEmailPage = () => {
       }
     } catch (error) {
       console.error("지원자 조회 에러", error);
-      alert(error.response.data.message);
+
+      if (error.response.data.code === "LOGIN4000") {
+        window.location.replace("/404");
+        return;
+      }
     }
   };
 

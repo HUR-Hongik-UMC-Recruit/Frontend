@@ -35,9 +35,14 @@ const RecruitAlertEmailPage = () => {
       }
     } catch (error) {
       console.error("지원자 조회 에러", error);
-      alert(error.response.data.message);
+
+      if (error.response.data.code === "LOGIN4000") {
+        window.location.replace("/404");
+        return;
+      }
     }
   };
+  
   // 모집알림 이메일 등록한 지원자 조회 api 호출
   useEffect(() => {
     fetchApplicants();
