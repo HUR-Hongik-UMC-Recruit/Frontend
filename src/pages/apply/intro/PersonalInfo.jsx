@@ -60,25 +60,17 @@ const PersonalInfo = ({ applicantDTO, updateApplicantDTO, refs }) => {
 
   // 면접 일정 라디오 버튼 핸들러
   const handleInterviewClick = (option) => {
-    console.log("option: ", option);
-    const updatedOptions = {
-      ...selectedInterview,
-      [option]: !selectedInterview[option], // 선택된 날짜의 불리언 값 반대로 업뎃
-    };
-
-    setSelectedInterview(updatedOptions);
-
-    // updateApplicantDTO("firstInterviewDate", updatedOptions.firstInterviewDate);
-    // updateApplicantDTO("secondInterviewDate", updatedOptions.secondInterviewDate);
-    // updateApplicantDTO("thirdInterviewDate", updatedOptions.thirdInterviewDate);
-    console.log("선택된 값: ", updatedOptions);
-    Object.entries(updatedOptions).map(([key, value]) => {
-      console.log(`전송되는 데이터 - key: ${key}, value: ${value}`);
-      updateApplicantDTO(key, value);
-    });
-
-    console.log("선택된 값: ", updatedOptions);
-    console.log("서버로 전송 ", updateApplicantDTO);
+    // 현재 선택 상태의 반대값을 저장
+    const newValue = !selectedInterview[option];
+    
+    // 로컬 상태 업데이트
+    setSelectedInterview(prev => ({
+      ...prev,
+      [option]: newValue
+    }));
+  
+    // 부모 컴포넌트의 상태 직접 업데이트
+    updateApplicantDTO(option, newValue);
   };
 
   return (
