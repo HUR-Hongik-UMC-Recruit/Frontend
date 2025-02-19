@@ -56,7 +56,7 @@ const Button = styled.button`
 const ModalWrapper = styled.div`
   display: flex;
   width: 43.25rem;
-  height: 17.25rem;
+  height: 20rem;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -95,7 +95,7 @@ const ModalDetail = styled.div`
   font-family: "Pretendard Variable";
   font-size: 1rem;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 150%; /* 1.5rem */
 `;
 
@@ -182,6 +182,18 @@ const ToastWrapper = styled.div`
   left: 1rem;
   right: 1rem;
   bottom: 5rem;
+`;
+
+const InfoText = styled.div`
+  color: #2b9176;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.875rem;
+  letter-spacing: 0.009rem;
+  margin: 0;
+  margin-left: 0.3rem;
+  white-space: pre-line;
 `;
 
 const ApplicationPage = () => {
@@ -523,6 +535,7 @@ const ApplicationPage = () => {
             <ModalText>
               <ModalTitle>제출을 완료하시겠습니까?</ModalTitle>
               <ModalDetail>제출한 내용은 수정할 수 없습니다.</ModalDetail>
+              <InfoText>지원 서류의 결과는 <span style={{ fontWeight: 800 }}>이메일</span>을 통해 공지됩니다.</InfoText>
             </ModalText>
             <ModalButton>
               <Cancel onClick={() => setOpen(false)}>취소</Cancel>
