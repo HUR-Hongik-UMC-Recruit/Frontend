@@ -16,7 +16,7 @@ const AllApplicantsPage = () => {
 
   const fetchApplicants = async (filters = {}) => {
     try {
-      const response = await axios.get(`${apiUrl}/applicant`, {
+      const response = await axios.get(`${apiUrl}/admin/applicant`, {
         params: {
           part: filters.part !== "파트별" ? filters.part : undefined,
           docPassStatus:

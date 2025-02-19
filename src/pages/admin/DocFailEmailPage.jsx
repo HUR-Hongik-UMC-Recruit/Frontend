@@ -20,7 +20,7 @@ const DocFailEmailPage = () => {
   // 불합격자 조회 api 호출
   const fetchApplicants = async () => {
     try {
-      const response = await axios.get(`${apiUrl}/docFailResult`);
+      const response = await axios.get(`${apiUrl}/admin/docFailResult`);
       if (response.data.isSuccess) {
         setApplicants(response.data.result.resultApplicants);
         setTotalItemsCount(response.data.result.resultApplicants.length); // 받아온 전체 데이터 개수
@@ -50,7 +50,7 @@ const DocFailEmailPage = () => {
   const handleSendEmails = async () => {
     try {
       const response = await axios.post(
-        `${apiUrl}/docFailResult/sendFailEmail`
+        `${apiUrl}/admin/docFailResult/sendFailEmail`
       );
 
       if (response.data.isSuccess) {

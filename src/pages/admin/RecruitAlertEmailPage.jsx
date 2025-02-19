@@ -20,7 +20,7 @@ const RecruitAlertEmailPage = () => {
 
   const fetchApplicants = async () => {
     try {
-      const response = await axios.get(`${apiUrl}/notice`);
+      const response = await axios.get(`${apiUrl}/admin/notice`);
       if (response.data.isSuccess) {
         setApplicants(response.data.result);
         setTotalItemsCount(response.data.result.length); // 받아온 전체 데이터 개수
@@ -48,7 +48,7 @@ const RecruitAlertEmailPage = () => {
 
   const handleSendEmails = async () => {
     try {
-      const response = await axios.post(`${apiUrl}/notice/send`);
+      const response = await axios.post(`${apiUrl}/admin/notice/send`);
 
       if (response.data.isSuccess) {
         alert("메일이 성공적으로 전송되었습니다.");

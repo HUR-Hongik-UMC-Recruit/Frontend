@@ -15,7 +15,7 @@ const AllApplicantsTable = ({ items }) => {
   // 특정 지원자의 지원서 조회
   const handleViewApplication = async (applicantId) => {
     try {
-      const response = await axios.get(`${apiUrl}/applicant/${applicantId}`);
+      const response = await axios.get(`${apiUrl}/admin/applicant/${applicantId}`);
       if (response.data.isSuccess) {
         console.log("지원서: ", response.data.result);
         setApplication(response.data.result);
@@ -37,7 +37,7 @@ const AllApplicantsTable = ({ items }) => {
   const updateDocPassStatus = async (applicantId, value) => {
     try {
       const response = await axios.patch(
-        `${apiUrl}/applicant/${applicantId}/docPassStatus?docPassStatus=${
+        `${apiUrl}/admin/applicant/${applicantId}/docPassStatus?docPassStatus=${
           value === "합격"
         }`
       );
@@ -56,7 +56,7 @@ const AllApplicantsTable = ({ items }) => {
   const updateFinalPassStatus = async (applicantId, value) => {
     try {
       const response = await axios.patch(
-        `${apiUrl}/applicant/${applicantId}/finalPassStatus?finalPassStatus=${
+        `${apiUrl}/admin/applicant/${applicantId}/finalPassStatus?finalPassStatus=${
           value === "합격"
         }`
       );
