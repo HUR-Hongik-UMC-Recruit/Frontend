@@ -81,7 +81,7 @@ function Routing() {
                     element={<FinalFailEmailPage />}
                   />
                   <Route
-                    path="applicant"
+                    path="applicants"
                     element={<AllApplicantsPage />}
                   />
                 </Routes>
