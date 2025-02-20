@@ -3,7 +3,7 @@ import contents from "../../data/home/CurriculumWeekData";
 import { motion } from "framer-motion";
 
 const WeekWrapper = styled(motion.div)`
-  width: 65.375rem;
+  width: 70rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
