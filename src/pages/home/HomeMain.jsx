@@ -100,8 +100,9 @@ const RecruitButton = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 15.5rem;
-  height: 4rem;
+  // width: 15.5rem;
+  height: 2rem;
+  padding: 2rem;
 
   border-radius: 5rem;
   border: 0.063rem solid #90e6c9;
@@ -184,10 +185,10 @@ const HomeMain = ({ downClick }) => {
           당신의 아이디어를 오직 UMC에서
         </BTRDetail>
       </BTRWrapper>
-      <RecruitButton onClick={toRecruit}>
-        UMC 8기 지원하기
+      {/* <RecruitButton onClick={toRecruit}>
+        모집 알림 신청하기
         <img src={arrowRight} alt="arrowright" />
-      </RecruitButton>
+      </RecruitButton> */}
       <NextButton onClick={downClick}>
         <img src={arrowDown} alt="arrowdown" />
       </NextButton>
