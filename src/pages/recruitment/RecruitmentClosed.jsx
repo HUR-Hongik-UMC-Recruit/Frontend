@@ -5,7 +5,6 @@ import { ReactComponent as SendIcon } from "../../assets/icons/SendIcon.svg";
 import BackgroundSvg from "../../assets/images/recruitment_background/background.svg";
 
 const RecruitmentClosed = () => {
-
   const apiUrl = process.env.REACT_APP_API_URL;
 
   const [email, setEmail] = useState("");
@@ -25,11 +24,15 @@ const RecruitmentClosed = () => {
     }
 
     try {
-      const response = await axios.post(`${apiUrl}/applicant/notice/register`, email, {
-        headers: {
-          'Content-Type': 'application/json'
+      const response = await axios.post(
+        `${apiUrl}/applicant/notice/register`,
+        email,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
         }
-      });
+      );
       if (response.status === 200) {
         alert("모집 알림 신청이 완료 되었습니다.");
         console.log(email);
@@ -45,7 +48,7 @@ const RecruitmentClosed = () => {
       <ContentWrapper>
         <Title>지금은 모집 기간이 아닙니다</Title>
         <Description>
-          UMC 8기 모집 알림을 신청하고 가장 빠르게 모집 소식을 들어보세요.
+          UMC 9기 모집 알림을 신청하고 가장 빠르게 모집 소식을 들어보세요.
         </Description>
         <InputField
           type="email"

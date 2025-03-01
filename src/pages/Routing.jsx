@@ -30,7 +30,7 @@ function Routing() {
     "/main",
     "/recruitment",
     "/recruiteInfo",
-    "/apply",
+    // "/apply",
     "/leader",
     "/project",
   ].includes(pathname);
@@ -47,14 +47,14 @@ function Routing() {
         <Route path="/project" element={<ProjectPage />} />
         <Route path="/recruitment" element={<RecruitmentPage />} />
         <Route path="/recruiteInfo" element={<RecruiteInfoPage />} />
-        <Route
+        {/* <Route
           path="/apply"
           element={
             <EmailProvider>
               <ApplicationPage />
             </EmailProvider>
           }
-        />
+        /> */}
         <Route path="/join" element={<AdminJoinPage />} />
         <Route path="/login" element={<AdminLoginPage />} />
 
@@ -80,10 +80,7 @@ function Routing() {
                     path="finalfail-email"
                     element={<FinalFailEmailPage />}
                   />
-                  <Route
-                    path="applicants"
-                    element={<AllApplicantsPage />}
-                  />
+                  <Route path="applicants" element={<AllApplicantsPage />} />
                 </Routes>
               </AdminLayout>
             </AdminRoute>
