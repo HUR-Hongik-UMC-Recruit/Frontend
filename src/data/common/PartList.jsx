@@ -1,11 +1,11 @@
 const PartList = [
   "Plan",
   "Design",
-  "Android",
+  // "Android",
   "iOS",
-  "Web",
-  "Spring",
-  "Node.js",
+  // "Web",
+  // "Spring",
+  // "Node.js",
 ];
 
 export default PartList;

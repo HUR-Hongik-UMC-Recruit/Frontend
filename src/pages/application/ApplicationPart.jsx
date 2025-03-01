@@ -48,8 +48,8 @@ const RadioPartWrapper = styled.div`
 const RadioLabel = styled.label`
   display: flex;
   align-items: center;
-  justify-content: center;
-  width: 8.75rem;
+  justify-content: space-between;
+  width: 100%;
   height: 3.75rem;
   gap: 1.9rem;
 `;
@@ -196,7 +196,8 @@ const ApplicationPart = ({
   };
 
   const renderQuestion3 = () => {
-    if (selectPart === "Plan") { // plan 트랙일 때 textarea
+    if (selectPart === "Plan") {
+      // plan 트랙일 때 textarea
       return (
         <AnswerWrapper>
           <AnswerBig
