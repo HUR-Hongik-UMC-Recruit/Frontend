@@ -185,10 +185,10 @@ const HomeMain = ({ downClick }) => {
           당신의 아이디어를 오직 UMC에서
         </BTRDetail>
       </BTRWrapper>
-      {/* <RecruitButton onClick={toRecruit}>
-        모집 알림 신청하기
+      <RecruitButton onClick={toRecruit}>
+        UMC 8기 추가 모집
         <img src={arrowRight} alt="arrowright" />
-      </RecruitButton> */}
+      </RecruitButton>
       <NextButton onClick={downClick}>
         <img src={arrowDown} alt="arrowdown" />
       </NextButton>

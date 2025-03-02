@@ -92,10 +92,10 @@ const Challenge = () => {
     // window.location.href = "/recruitment";
 
     // 스무스하게 넘어감
-    // navigate("/apply");
-    // window.scrollTo(0, 0); // 페이지 최상단으로 스크롤
+    navigate("/apply");
+    window.scrollTo(0, 0); // 페이지 최상단으로 스크롤
 
-    window.location.href = "/recruitment";
+    // window.location.href = "/recruitment";
   };
 
   return (
@@ -106,7 +106,8 @@ const Challenge = () => {
           하세요!
         </ChallengeText>
         <ChallengeButton onClick={toRecruit}>
-          모집 알림 신청하기 <img src={arrowNext} alt="arrownext" />
+          UMC 8기 추가 모집
+          <img src={arrowNext} alt="arrownext" />
         </ChallengeButton>
       </ChallengeWrapper>
     </ChallengeContainer>
