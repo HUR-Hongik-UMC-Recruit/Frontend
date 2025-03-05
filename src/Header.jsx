@@ -115,14 +115,14 @@ const Header = () => {
   const navigate = useNavigate();
 
   const toRecruit = () => {
-    // 새로고침 느낌
-    window.location.href = "/apply";
+    // // 새로고침 느낌
+    // window.location.href = "/apply";
 
-    // 스무스하게 넘어감
-    navigate("/apply");
+    // // 스무스하게 넘어감
+    // navigate("/apply");
 
-    // alert("지금은 모집 기간이 아닙니다. 9기 모집 알림을 신청해보세요!");
-    // window.location.href = "/recruitment";
+    alert("지금은 모집 기간이 아닙니다. 9기 모집 알림을 신청해보세요!");
+    window.location.href = "/recruitment";
   };
 
   const location = useLocation();
@@ -138,7 +138,7 @@ const Header = () => {
         </HomeWrapper>
         <MenuWrapper>
           <MenuListWrapper>
-            <MenuList href="/recruiteInfo" $isApplyPage={isApplyPage}>
+            <MenuList href="/recruitment" $isApplyPage={isApplyPage}>
               지원안내
             </MenuList>
             <MenuList href="/project" $isApplyPage={isApplyPage}>
